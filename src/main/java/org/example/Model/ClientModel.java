@@ -21,6 +21,14 @@ public class ClientModel {
         this.phone = phone;
     }
 
+    public ClientModel(int id, String name, String dni, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.dni = dni;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public ClientModel(int id, String name, String dni, String email, String phone, Date createdAt, Date updatedAt) {
         this.id = id;
         this.name = name;

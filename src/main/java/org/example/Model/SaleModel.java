@@ -1,6 +1,6 @@
 package org.example.Model;
 
-public class VentaModel {
+public class SaleModel {
     private int id;
     private int idCliente;
     private String date;
@@ -8,16 +8,16 @@ public class VentaModel {
     private String createdAt;
     private String updatedAt;
 
-    public VentaModel() {
+    public SaleModel() {
     }
 
-    public VentaModel(int idCliente, String date, double total) {
+    public SaleModel(int idCliente, String date, double total) {
         this.idCliente = idCliente;
         this.date = date;
         this.total = total;
     }
 
-    public VentaModel(int id, int idCliente, String date, double total, String createdAt, String updatedAt) {
+    public SaleModel(int id, int idCliente, String date, double total, String createdAt, String updatedAt) {
         this.id = id;
         this.idCliente = idCliente;
         this.date = date;

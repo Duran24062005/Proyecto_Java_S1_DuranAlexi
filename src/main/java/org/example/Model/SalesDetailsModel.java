@@ -1,6 +1,6 @@
 package org.example.Model;
 
-public class DetalleVentaModel {
+public class SalesDetailsModel {
     private int id;
     private int idVenta;
     private int idCelular;
@@ -9,17 +9,17 @@ public class DetalleVentaModel {
     private String createdAt;
     private String updatedAt;
 
-    public DetalleVentaModel() {
+    public SalesDetailsModel() {
     }
 
-    public DetalleVentaModel(int idVenta, int idCelular, int cantidad, double subtotal) {
+    public SalesDetailsModel(int idVenta, int idCelular, int cantidad, double subtotal) {
         this.idVenta = idVenta;
         this.idCelular = idCelular;
         this.cantidad = cantidad;
         this.subtotal = subtotal;
     }
 
-    public DetalleVentaModel(int id, int idVenta, int idCelular, int cantidad, double subtotal, String createdAt, String updatedAt) {
+    public SalesDetailsModel(int id, int idVenta, int idCelular, int cantidad, double subtotal, String createdAt, String updatedAt) {
         this.id = id;
         this.idVenta = idVenta;
         this.idCelular = idCelular;
