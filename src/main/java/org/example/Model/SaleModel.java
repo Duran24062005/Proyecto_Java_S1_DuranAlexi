@@ -1,23 +1,24 @@
 package org.example.Model;
 
+import java.util.Date;
+
 public class SaleModel {
     private int id;
     private int idCliente;
-    private String date;
+    private Date date;
     private double total;
-    private String createdAt;
-    private String updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 
     public SaleModel() {
     }
 
-    public SaleModel(int idCliente, String date, double total) {
+    public SaleModel(int idCliente, double total) {
         this.idCliente = idCliente;
-        this.date = date;
         this.total = total;
     }
 
-    public SaleModel(int id, int idCliente, String date, double total, String createdAt, String updatedAt) {
+    public SaleModel(int id, int idCliente, Date date, double total, Date createdAt, Date updatedAt) {
         this.id = id;
         this.idCliente = idCliente;
         this.date = date;
@@ -41,11 +42,11 @@ public class SaleModel {
         this.idCliente = idCliente;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -57,19 +58,19 @@ public class SaleModel {
         this.total = total;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getUpdatedAt() {
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 

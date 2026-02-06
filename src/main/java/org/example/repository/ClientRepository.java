@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.example.Config.DatabaseConnection;
-import org.example.Interfaces.IClientRepository;
+import org.example.Interfaces.repositoryInterfaces.IClienteRepository;
 import org.example.Model.ClientModel;
 
-public class ClientRepository implements IClientRepository{
+public class ClientRepository implements IClienteRepository{
 
     @Override
     public boolean addClient(ClientModel client) {
@@ -81,6 +81,7 @@ public class ClientRepository implements IClientRepository{
 
         if (toUpdate == null) {
             System.out.println("Este usuario no existe");
+            return false;
         }
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -102,10 +103,22 @@ public class ClientRepository implements IClientRepository{
 
     @Override
     public boolean deleteClient(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteClient'");
-    }
+        String sql = "DELETE FROM clientes  WHERE id = ?";
+        ClientModel toUpdate = getClientById(id);
 
-    
-    
+        if (toUpdate == null) {
+            System.out.println("Este usuario no existe");
+            return false;
+        }
+        try (Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ps.execute();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }   
 }
