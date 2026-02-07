@@ -27,7 +27,7 @@ public class DatabaseConnection {
 
         try {
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Conexión a BD establecida correctamente");
+            // System.out.println("Conexión a BD establecida correctamente");
             return conn;
 
         } catch (SQLInvalidAuthorizationSpecException e) {

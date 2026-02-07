@@ -14,6 +14,9 @@ target/
 *.iml
 *.ipr
 
+RESUMEN_TEST.md
+TEST_GUIDE.md
+
 ### Eclipse ###
 .apt_generated
 .classpath

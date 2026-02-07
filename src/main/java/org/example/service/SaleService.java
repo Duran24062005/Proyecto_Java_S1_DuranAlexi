@@ -253,15 +253,9 @@ public class SaleService {
      * @return Mapa con mes y total de ventas
      */
     public Map<String, Double> getSalesByMonth() {
-        return saleRepository.getAllSales().stream()
-            .collect(Collectors.groupingBy(
-                sale -> sale.getDate().toInstant()
-                    .atZone(java.time.ZoneId.systemDefault())
-                    .toLocalDate()
-                    .withDayOfMonth(1)
-                    .toString(),
-                Collectors.summingDouble(SaleModel::getTotal)
-            ));
+    return saleRepository.getAllSales()
+        .stream()
+        .collect(Collectors.groupingBy(sale -> sale.getDate().toLocalDate().getMonth().toString(), Collectors.summingDouble(SaleModel::getTotal)));
     }
 
     /**

@@ -14,7 +14,8 @@ import org.example.Model.SaleModel;
 import org.example.Model.SalesDetailsModel;
 
 public class ReportService {
-    private static final String REPORT_FILE = "reporte_ventas.txt";
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+    private static final String REPORT_DIR = "reports/";
     private final SaleService saleService;
     private final PhoneService phoneService;
     private final ClientService clientService;
@@ -25,11 +26,18 @@ public class ReportService {
         this.clientService = clientService;
     }
 
+    private static String generateReportFileName() {
+        String timestamp = LocalDateTime.now().format(FORMATTER);
+        return REPORT_DIR + "reporte_ventas_" + timestamp + ".txt";
+    }
+
     /**
      * Genera un reporte completo de ventas y lo guarda en archivo
      * @return true si se genera correctamente
      */
     public boolean generateSalesReport() {
+        String REPORT_FILE = generateReportFileName();
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(REPORT_FILE))) {
             writer.write("========================================\n");
             writer.write("REPORTE DE VENTAS - TECNOSTORE\n");
