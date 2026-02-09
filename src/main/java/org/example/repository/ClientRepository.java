@@ -77,7 +77,7 @@ public class ClientRepository implements IClienteRepository{
     @Override
     public boolean updateClient(int id, ClientModel client) {
         String sql = "UPDATE clientes SET name=?, dni=?, email=?, phone=? WHERE id = ?";
-        ClientModel toUpdate = getClientById(client.getId());
+        ClientModel toUpdate = getClientById(id);
 
         if (toUpdate == null) {
             System.out.println("Este usuario no existe");
@@ -95,6 +95,7 @@ public class ClientRepository implements IClienteRepository{
             ps.execute();
             
         } catch (Exception e) {
+            System.out.println("No se puedo");
             e.printStackTrace();
             return false;
         }

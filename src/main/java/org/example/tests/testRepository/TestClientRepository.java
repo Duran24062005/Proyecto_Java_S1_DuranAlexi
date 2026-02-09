@@ -148,7 +148,7 @@ public class TestClientRepository {
             clientToUpdate.setName(newName);
             clientToUpdate.setPhone(newPhone);
             
-            boolean updated = clientRepository.updateClient(clientToUpdate);
+            boolean updated = clientRepository.updateClient(5, clientToUpdate);
             System.out.println("\n  Cliente después de actualización:");
             System.out.println("  Nombre nuevo: " + clientToUpdate.getName());
             System.out.println("  Teléfono nuevo: " + clientToUpdate.getPhone());

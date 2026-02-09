@@ -361,7 +361,7 @@ public class TestClientService {
             // Modificar datos
             clientToUpdate.setPhone(newPhone);
             
-            boolean updated = clientService.updateClient(clientToUpdate);
+            boolean updated = clientService.updateClient(1, clientToUpdate);
             System.out.println("  Teléfono nuevo: " + clientToUpdate.getPhone());
             System.out.println("  Actualización exitosa: " + updated);
             
