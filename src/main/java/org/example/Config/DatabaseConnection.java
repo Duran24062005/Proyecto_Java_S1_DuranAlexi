@@ -16,6 +16,17 @@ public class DatabaseConnection {
     private static final String USER = dotenv.get("DB_USER");
     private static final String PASSWORD = dotenv.get("DB_PASSWORD");
 
+    public DatabaseConnection() {
+        try (Connection conn = getConnection();) {
+            System.out.println("Conexión a BD establecida correctamente");
+            conn.close();
+        } catch (RuntimeException e) {
+            System.err.println("Error al conectar a la base de datos: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+
     public static Connection getConnection() {
 
         // Validación de variables de entorno
