@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: #fff;
+}
+
+.container {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    text-align: center;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: #facc15;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #eab308;
+}
+
+/* CONTENEDOR CON PADDING */
+#qrWrapper {
+    background: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+#qrCode {
+    display: flex;
+    justify-content: center;
+}
