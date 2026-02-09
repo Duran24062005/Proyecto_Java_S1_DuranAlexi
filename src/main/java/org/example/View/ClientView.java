@@ -93,6 +93,9 @@ public class ClientView {
     }
 
     public void getClient(ClientModel client){
+        if (client == null) {
+            System.out.println("Cliente no existente");
+        }
         System.out.println("""
                 =======================================================
                     Id: %s

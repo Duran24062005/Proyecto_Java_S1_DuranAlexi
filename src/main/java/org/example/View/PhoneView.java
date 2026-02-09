@@ -3,7 +3,7 @@ package org.example.View;
 import java.util.List;
 import java.util.Scanner;
 
-import org.example.Model.ClientModel;
+import org.example.Model.PhoneModel;
 
 public class PhoneView {
     private final Scanner scanner = new Scanner(System.in);
@@ -15,12 +15,12 @@ public class PhoneView {
                         Estas en Gestionar Cliente
             =======================================================
             Elija una opción:
-                1. Crear cliente.
-                2. Ver todos los clientes.
-                3. Buscar cliente por ID.
-                4. Buscar cliente por DNI.
-                5. Actualizar cliente.
-                6. Eliminar cliente.
+                1. Crear telefono.
+                2. Ver todos los telefonos.
+                3. Buscar telefono por ID.
+                4. Buscar telefono por DNI.
+                5. Actualizar telefono.
+                6. Eliminar telefono.
 
             =======================================================
             """);
@@ -37,25 +37,31 @@ public class PhoneView {
         }
     }
 
-    public ClientModel createNewPhone(){
+    public PhoneModel createNewPhone(){
         System.out.println("\n" + "═".repeat(60));
-        System.out.println("           Registro de Cliente");
+        System.out.println("           Registro de Telefono.");
         System.out.println("═".repeat(60));
         
         try {
-            System.out.println("Nombre: ");
-            String name = scanner.nextLine().trim();
+            System.out.println("Marca: ");
+            String brand = scanner.nextLine().trim();
+            
+            System.out.println("Modelo: ");
+            String model = scanner.nextLine().trim();
 
-            System.out.println("C.C: ");
-            String dni = scanner.nextLine().trim();
+            System.out.println("Systema operativo: ");
+            String operativeSystem = scanner.nextLine().trim();
 
-            System.out.println("Email: ");
-            String email = scanner.nextLine().trim();
+            System.out.println("Gama: ");
+            String rangeCategory = scanner.nextLine().trim();
 
-            System.out.println("Numero de telefono: ");
-            String phone = scanner.nextLine().trim();
+            System.out.println("Precio: ");
+            double price = Double.parseDouble(scanner.nextLine().trim());
 
-            return new ClientModel(name, dni, email, phone);
+            System.out.println("Stock actual: ");
+            int stock = Integer.parseInt(scanner.nextLine().trim());
+
+            return new PhoneModel(brand, model, operativeSystem, rangeCategory, price, stock);
 
         } catch (NumberFormatException e) {
             System.out.println("Debes ingresar un numero valido: " + e);
@@ -66,48 +72,58 @@ public class PhoneView {
         }
     }
 
-    public void getPhones(List<ClientModel> clients){
-        if (clients.size() < 0 || clients.isEmpty()) {
-            System.out.println("No hay clientes.");
+    public void getPhones(List<PhoneModel> phones){
+        if (phones.size() < 0 || phones.isEmpty()) {
+            System.out.println("No hay telefonos.");
         }
-        System.out.println("Clientes: (" + clients.size() + ")");
-        for (ClientModel client : clients) {
+        System.out.println("Telefonos: (" + phones.size() + ")");
+        for (PhoneModel phone : phones) {
             System.out.println("""
                 =======================================================
                     Id: %s
-                    Nombre: %s
-                    C.c: %s
-                    Email: %s
+                    Marca: %s
+                    Modelo: %s
+                    Sistema operativo: %s
+                    Gama: %s
+                    Precio: %s
                     F. de creacion: %s
                     F. de actualizacion: %s
                     """.formatted(
-                        client.getId(), 
-                        client.getName(), 
-                        client.getDni(),
-                        client.getEmail(),
-                        client.getCreatedAt(),
-                        client.getUpdatedAt()
+                        phone.getId(), 
+                        phone.getBrand(), 
+                        phone.getModel(),
+                        phone.getOperativeSystem(),
+                        phone.getRangeCategory(),
+                        phone.getPrice(),
+                        phone.getCreatedAt(),
+                        phone.getUpdatedAt()
                     ));
         }
     }
 
-    public void getPhone(ClientModel client){
+    public void getPhone(PhoneModel phone){
+        if (phone == null) {
+            System.out.println("Telefono no existente");
+        }
         System.out.println("""
                 =======================================================
                     Id: %s
-                    Nombre: %s
-                    C.c: %s
-                    Email: %s
+                    Marca: %s
+                    Modelo: %s
+                    Sistema operativo: %s
+                    Gama: %s
+                    Precio: %s
                     F. de creacion: %s
                     F. de actualizacion: %s
-                =======================================================
                     """.formatted(
-                        client.getId(), 
-                        client.getName(), 
-                        client.getDni(),
-                        client.getEmail(),
-                        client.getCreatedAt(),
-                        client.getUpdatedAt()
+                        phone.getId(), 
+                        phone.getBrand(), 
+                        phone.getModel(),
+                        phone.getOperativeSystem(),
+                        phone.getRangeCategory(),
+                        phone.getPrice(),
+                        phone.getCreatedAt(),
+                        phone.getUpdatedAt()
                     ));
     }
 
