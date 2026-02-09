@@ -156,18 +156,18 @@ public class ClientService {
      * @param client Cliente con datos actualizados
      * @return true si se actualiza correctamente, false en caso contrario
      */
-    public boolean updateClient(ClientModel client) {
+    public boolean updateClient(int id, ClientModel client) {
         if (!validateClient(client)) {
             return false;
         }
         
-        ClientModel existing = clientRepository.getClientById(client.getId());
+        ClientModel existing = clientRepository.getClientById(id);
         if (existing == null || existing.getId() == 0) {
             System.out.println("Error: El cliente con ID " + client.getId() + " no existe");
             return false;
         }
         
-        return clientRepository.updateClient(client);
+        return clientRepository.updateClient(id, client);
     }
 
     /**

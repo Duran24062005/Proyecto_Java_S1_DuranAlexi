@@ -75,7 +75,7 @@ public class ClientRepository implements IClienteRepository{
     }
 
     @Override
-    public boolean updateClient(ClientModel client) {
+    public boolean updateClient(int id, ClientModel client) {
         String sql = "UPDATE clientes SET name=?, dni=?, email=?, phone=? WHERE id = ?";
         ClientModel toUpdate = getClientById(client.getId());
 
@@ -90,7 +90,7 @@ public class ClientRepository implements IClienteRepository{
             ps.setString(2, client.getDni());
             ps.setString(3, client.getEmail());
             ps.setString(4, client.getPhone());
-            ps.setInt(5, client.getId());
+            ps.setInt(5, id);
 
             ps.execute();
             

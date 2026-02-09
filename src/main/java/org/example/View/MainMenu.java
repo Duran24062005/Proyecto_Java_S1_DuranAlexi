@@ -21,6 +21,7 @@ public class MainMenu {
                 2. Gestionar celulares.
                 3. Generar o gestionar venta.
                 4. Gestionar reportes.
+                5. Salir.
 
             =======================================================
             """);

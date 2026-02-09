@@ -8,6 +8,6 @@ public interface IClienteRepository {
     public boolean addClient(ClientModel client);
     public List<ClientModel> getAllClients();
     public ClientModel getClientById(int id);
-    public boolean updateClient(ClientModel client);
+    public boolean updateClient(int id, ClientModel client);
     public boolean deleteClient(int id);
 }

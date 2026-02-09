@@ -115,6 +115,39 @@ public class ClientView {
                     ));
     }
 
+
+    public int getId(){
+        try {
+            System.out.println("Introduzca el id: ");
+            return Integer.parseInt(scanner.nextLine().trim());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Debes ingresar un numero valido: " + e);
+            return -1;
+        } catch (IllegalStateException | java.util.NoSuchElementException e) {
+            System.out.println("Error en la lectura de datos.");
+            return -1;
+        }
+
+    }
+
+    public String getString(String data){
+        try {
+            System.out.println("""
+                Introduzca el %s: 
+            """.formatted(data));
+            return scanner.nextLine().trim();
+
+        } catch (NumberFormatException e) {
+            System.out.println("Debes ingresar un numero valido: " + e);
+            return "";
+        } catch (IllegalStateException | java.util.NoSuchElementException e) {
+            System.out.println("Error en la lectura de datos.");
+            return "";
+        }
+
+    }
+
     public int updateClient(){
         return 1;
     }
