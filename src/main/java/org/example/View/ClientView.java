@@ -22,6 +22,7 @@ public class ClientView {
                 4. Buscar cliente por DNI.
                 5. Actualizar cliente.
                 6. Eliminar cliente.
+                7. Volver al menu principal.
 
             =======================================================
             """);
@@ -79,6 +80,7 @@ public class ClientView {
                     Nombre: %s
                     C.c: %s
                     Email: %s
+                    Telefono: %s
                     F. de creacion: %s
                     F. de actualizacion: %s
                     """.formatted(
@@ -86,6 +88,7 @@ public class ClientView {
                         client.getName(), 
                         client.getDni(),
                         client.getEmail(),
+                        client.getPhone(),
                         client.getCreatedAt(),
                         client.getUpdatedAt()
                     ));
@@ -102,6 +105,7 @@ public class ClientView {
                     Nombre: %s
                     C.c: %s
                     Email: %s
+                    Telefono: %s
                     F. de creacion: %s
                     F. de actualizacion: %s
                 =======================================================
@@ -110,6 +114,7 @@ public class ClientView {
                         client.getName(), 
                         client.getDni(),
                         client.getEmail(),
+                        client.getPhone(),
                         client.getCreatedAt(),
                         client.getUpdatedAt()
                     ));

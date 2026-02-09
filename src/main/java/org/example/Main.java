@@ -8,6 +8,12 @@ public class Main {
     public static void main(String[] args) {
         MainMenu menu = new MainMenu();
         ClientController client = new ClientController();
+
+        System.out.println("""
+            =======================================================
+                    👋   Bienvenido a Tecno Store System  💯
+            =======================================================
+                """);
         
         int option;
         do { 
@@ -18,13 +24,14 @@ public class Main {
                 case 2 -> System.out.println("");
                 case 3 -> System.out.println("");
                 case 4 -> System.out.println("");
-                case 5 -> Exit();
-                default -> {
-                    throw new AssertionError();
+                case 5 -> {
+                    System.out.println("\n¡Gracias por usar TecnoStore! Hasta luego.\n");
+                    return; // Salir del programa
                 }
+                default -> System.out.println("Opción inválida. Por favor, ingresa un número entre 1 y 5.\n");
             }
             
-        } while (option > 5 || option < 0);
+        } while (true);
         
     }
 

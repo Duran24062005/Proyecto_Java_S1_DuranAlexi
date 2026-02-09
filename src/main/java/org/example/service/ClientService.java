@@ -44,7 +44,7 @@ public class ClientService {
             return false;
         }
         
-        // Validar que el DNI sea único
+        // Validar que el DNI sea único (EXCLUIR el cliente actual si es actualización)
         if (isDniDuplicated(client.getDni(), client.getId())) {
             System.out.println("Error: Ya existe un cliente con esta identificación");
             return false;
@@ -55,7 +55,7 @@ public class ClientService {
             return false;
         }
         
-        // Validar que el email sea único
+        // Validar que el email sea único (EXCLUIR el cliente actual si es actualización)
         if (isEmailDuplicated(client.getEmail(), client.getId())) {
             System.out.println("Error: Ya existe un cliente con este correo electrónico");
             return false;
@@ -84,7 +84,7 @@ public class ClientService {
     /**
      * Verifica si existe duplicado de DNI (excluyendo el cliente actual)
      * @param dni DNI a verificar
-     * @param clientId ID del cliente actual (0 si es nuevo)
+     * @param clientId ID del cliente actual (0 si es nuevo registro)
      * @return true si existe duplicado
      */
     private boolean isDniDuplicated(String dni, int clientId) {
@@ -96,7 +96,7 @@ public class ClientService {
     /**
      * Verifica si existe duplicado de email (excluyendo el cliente actual)
      * @param email Email a verificar
-     * @param clientId ID del cliente actual (0 si es nuevo)
+     * @param clientId ID del cliente actual (0 si es nuevo registro)
      * @return true si existe duplicado
      */
     private boolean isEmailDuplicated(String email, int clientId) {
@@ -153,17 +153,23 @@ public class ClientService {
 
     /**
      * Actualiza un cliente existente
+     * @param id ID del cliente a actualizar
      * @param client Cliente con datos actualizados
      * @return true si se actualiza correctamente, false en caso contrario
      */
     public boolean updateClient(int id, ClientModel client) {
-        if (!validateClient(client)) {
+        // Verificar que el cliente exista
+        ClientModel existing = clientRepository.getClientById(id);
+        if (existing == null || existing.getId() == 0) {
+            System.out.println("Error: El cliente con ID " + id + " no existe");
             return false;
         }
         
-        ClientModel existing = clientRepository.getClientById(id);
-        if (existing == null || existing.getId() == 0) {
-            System.out.println("Error: El cliente con ID " + client.getId() + " no existe");
+        // Asignar el ID correcto al cliente que se va a actualizar
+        client.setId(id);
+        
+        // Validar los datos (ahora con el ID correcto para la comparación)
+        if (!validateClient(client)) {
             return false;
         }
         

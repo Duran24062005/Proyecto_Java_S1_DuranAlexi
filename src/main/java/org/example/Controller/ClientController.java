@@ -21,7 +21,7 @@ public class ClientController {
         do { 
             option = clientView.clientMenu();
             processOPtion(option);
-        } while (option > 7 || option < 0);
+        } while (option != 7);
     };
 
     public void processOPtion(int option){
@@ -32,7 +32,8 @@ public class ClientController {
             case 4 -> showClientByDNI();
             case 5 -> updateClient();
             case 6 -> deleteClient();
-            default->throw new AssertionError();
+            case 7 -> System.out.println("\n <- Back \n");
+            default-> System.out.println("Opción inválida. Por favor, ingresa un número entre 1 y 6.\\n");
         }
     }
 

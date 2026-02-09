@@ -14,7 +14,7 @@ public class MainMenu {
         System.out.println("""
             \n
             =======================================================
-                        Bienvenido a Tecno Store System
+                      Panel principal Tecno Store System
             =======================================================
             Elija una opción:
                 1. Gestionar clientes.
