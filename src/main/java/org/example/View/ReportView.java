@@ -19,6 +19,7 @@ public class ReportView {
                 4. Generar reporte de clientes.
                 5. Ver resumen de ventas.
                 6. Ver los 3 celulares mas vendidos.
+                7. Volver al menu principal.
 
             =======================================================
             """);

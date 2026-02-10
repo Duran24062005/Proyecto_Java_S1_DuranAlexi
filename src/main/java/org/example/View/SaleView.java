@@ -22,6 +22,7 @@ public class SaleView {
                 4. Buscar venta por DNI.
                 5. Actualizar venta.
                 6. Eliminar venta.
+                7. volver al menu principal.
 
             =======================================================
             """);
