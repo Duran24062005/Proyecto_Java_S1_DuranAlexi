@@ -3,6 +3,7 @@ package org.example.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class SaleRepository implements ISaleRepository {
             ps.setDouble(2, sale.getTotal());
             ps.execute();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -41,8 +42,8 @@ public class SaleRepository implements ISaleRepository {
                 sales.add(sale);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return sales;
@@ -61,8 +62,8 @@ public class SaleRepository implements ISaleRepository {
                 sales.add(sale);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return sales;
@@ -85,8 +86,8 @@ public class SaleRepository implements ISaleRepository {
                 sale.setCreatedAt(rs.getDate("created_at"));
                 sale.setUpdatedAt(rs.getDate("created_at"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return sale;
@@ -108,8 +109,8 @@ public class SaleRepository implements ISaleRepository {
                 sale.setCreatedAt(rs.getDate("created_at"));
                 sale.setUpdatedAt(rs.getDate("created_at"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return sale;
@@ -133,8 +134,8 @@ public class SaleRepository implements ISaleRepository {
 
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -154,8 +155,8 @@ public class SaleRepository implements ISaleRepository {
             ps.setInt(1, id);
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;

@@ -3,6 +3,7 @@ package org.example.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
             ps.setDouble(4, saleDetail.getSubtotal());
             ps.execute();
             return true;
-        } catch (Exception SQLException) {
-            SQLException.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -51,8 +52,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 saleDetails.add(detail);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return saleDetails;
@@ -75,8 +76,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 detail.setCreatedAt(rs.getString("created_at"));
                 detail.setUpdatedAt(rs.getString("updated_at"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return detail;
@@ -102,8 +103,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
 
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -123,8 +124,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
             ps.setInt(1, id);
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -157,8 +158,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 saleDetails.add(detail);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return saleDetails;
@@ -191,8 +192,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 saleDetails.add(detail);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return saleDetails;
@@ -212,8 +213,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 return rs.getInt("id_celular");
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
         return 0;
     }
@@ -234,8 +235,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 topPhones.add(rs.getInt("id_celular"));
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return topPhones;
@@ -257,8 +258,8 @@ public class SalesDetailsRepository implements ISaleDetailRepository {
                 return rs.getDouble("total");
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return 0.0;

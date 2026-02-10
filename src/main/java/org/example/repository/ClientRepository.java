@@ -3,6 +3,7 @@ package org.example.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class ClientRepository implements IClienteRepository{
             ps.setString(4, client.getPhone());
             ps.execute();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -43,8 +44,8 @@ public class ClientRepository implements IClienteRepository{
                 persons.add(person);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return persons;
@@ -67,8 +68,8 @@ public class ClientRepository implements IClienteRepository{
                 client.setCreatedAt(rs.getDate("created_at"));
                 client.setUpdatedAt(rs.getDate("created_at"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return client;
@@ -94,9 +95,9 @@ public class ClientRepository implements IClienteRepository{
 
             ps.execute();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("No se puedo");
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -116,8 +117,8 @@ public class ClientRepository implements IClienteRepository{
             ps.setInt(1, id);
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;

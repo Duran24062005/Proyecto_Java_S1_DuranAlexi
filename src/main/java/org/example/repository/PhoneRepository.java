@@ -3,6 +3,7 @@ package org.example.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +26,8 @@ public class PhoneRepository implements IPhoneRepository {
             ps.setInt(6, phone.getStock());
             ps.execute();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -55,8 +56,8 @@ public class PhoneRepository implements IPhoneRepository {
                 phones.add(phone);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return phones;
@@ -81,8 +82,8 @@ public class PhoneRepository implements IPhoneRepository {
                 phone.setCreatedAt(rs.getDate("created_at"));
                 phone.setUpdatedAt(rs.getDate("updated_at"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return phone;
@@ -110,8 +111,8 @@ public class PhoneRepository implements IPhoneRepository {
 
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -131,8 +132,8 @@ public class PhoneRepository implements IPhoneRepository {
             ps.setInt(1, id);
             ps.execute();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
         return true;
@@ -165,8 +166,8 @@ public class PhoneRepository implements IPhoneRepository {
                 phones.add(phone);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         return phones;
@@ -186,8 +187,8 @@ public class PhoneRepository implements IPhoneRepository {
             ps.setInt(2, phoneId);
             ps.execute();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
