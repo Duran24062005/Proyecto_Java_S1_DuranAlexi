@@ -26,9 +26,9 @@ public class ReportService {
         this.clientService = clientService;
     }
 
-    private static String generateReportFileName() {
+    private static String generateReportFileName(String pahtFolder, String fileName) {
         String timestamp = LocalDateTime.now().format(FORMATTER);
-        return REPORT_DIR + "reporte_ventas_" + timestamp + ".txt";
+        return REPORT_DIR + pahtFolder + "reporte_" + fileName + "_" + timestamp + ".txt";
     }
 
     /**
@@ -36,7 +36,7 @@ public class ReportService {
      * @return true si se genera correctamente
      */
     public boolean generateSalesReport() {
-        String REPORT_FILE = generateReportFileName();
+        String REPORT_FILE = generateReportFileName("/sales_reports/", "ventas");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(REPORT_FILE))) {
             writer.write("========================================\n");
@@ -142,7 +142,8 @@ public class ReportService {
      * @return true si se genera correctamente
      */
     public boolean generateInventoryReport() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("reporte_inventario.txt"))) {
+        String REPORT_FILE = generateReportFileName("/inventory_reports/", "inventario");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(REPORT_FILE))) {
             writer.write("========================================\n");
             writer.write("REPORTE DE INVENTARIO - TECNOSTORE\n");
             writer.write("========================================\n");
@@ -185,7 +186,8 @@ public class ReportService {
      * @return true si se genera correctamente
      */
     public boolean generateClientsReport() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("reporte_clientes.txt"))) {
+        String REPORT_FILE = generateReportFileName("/clients_reports/", "clientes");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(REPORT_FILE))) {
             writer.write("========================================\n");
             writer.write("REPORTE DE CLIENTES - TECNOSTORE\n");
             writer.write("========================================\n");
