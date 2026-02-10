@@ -1,5 +1,19 @@
 # Proyecto_Java_S1_DuranAlexi
 
+En esté archivo encontraras descripción general del sistema, con pautas claras
+para poder utilizar el sistema en tu maquina local, a demas de información basica del funcionamiento del mismo.
+
+No toda la información sobre el sistema se encuentra acá en esté mismo archivo, ya que es para un inicio rapido. Si deseas leer y aprender más del sistema a profundidad te recomiendo leer toda la documentación siguiente
+
+## Documentación
+
+- 📚 [Manual de Usuario](./docs/User_Manual.md)
+- 📚 [Documentación Técnica](./docs/Detailed_Technical_Guide.md)
+- 📚 [Documentación](./docs/DOCUMENTATION_TECNOSTORE.md)
+- 📚 [Resumen Ejecutivo](./docs/Executive_Summary.md)
+- 📚 [Guia para Tests](./docs/TEST_GUIDE.md)
+- 📚 [Resumen de Tests](./docs/RESUMEN_TEST.md)
+
 ## Sistema de Venta de Celulares “TecnoStore”
 
 La empresa TecnoStore es una tienda minorista dedicada a la venta de teléfonos celulares de diferentes marcas y gamas. Actualmente, desea automatizar el control de ventas, inventario y clientes, ya que todos los registros se manejan de forma manual en hojas de cálculo.
