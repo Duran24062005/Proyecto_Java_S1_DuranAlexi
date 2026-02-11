@@ -7,7 +7,7 @@ USE tecnostore_db;
 -- Phones Table
 CREATE TABLE celulares (
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    brand VARCHAR(50) NOT NULL UNIQUE,
+    brand VARCHAR(50) NOT NULL,
     model VARCHAR(255) NOT NULL,
     operative_sistem VARCHAR(100) NOT NULL,
     range_category VARCHAR(50) NOT NULL,

@@ -40,7 +40,7 @@ public class ClientRepository implements IClienteRepository{
                 ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                ClientModel person = new ClientModel(rs.getInt("id"), rs.getString("name"), rs.getString("dni"), rs.getString("email"), rs.getString("phone"), rs.getDate("created_at"), rs.getDate("created_at"));
+                ClientModel person = new ClientModel(rs.getInt("id"), rs.getString("name"), rs.getString("dni"), rs.getString("email"), rs.getString("phone"), rs.getDate("created_at"), rs.getDate("updated_at"));
                 persons.add(person);
             }
 

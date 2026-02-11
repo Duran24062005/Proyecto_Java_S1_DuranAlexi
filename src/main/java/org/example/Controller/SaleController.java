@@ -77,7 +77,7 @@ public class SaleController {
             List<ClientModel> clients = clientService.getAllClients();
             
             if (clients.isEmpty()) {
-                System.out.println("✗ No hay clientes registrados. Debes registrar un cliente primero.\n");
+                System.out.println("No hay clientes registrados. Debes registrar un cliente primero.\n");
                 return;
             }
             
@@ -92,19 +92,19 @@ public class SaleController {
             int clientIndex = Integer.parseInt(scanner.nextLine().trim()) - 1;
             
             if (clientIndex < 0 || clientIndex >= clients.size()) {
-                System.out.println("✗ Selección inválida\n");
+                System.out.println("Selección inválida\n");
                 return;
             }
             
             ClientModel selectedClient = clients.get(clientIndex);
-            System.out.println("✓ Cliente seleccionado: " + selectedClient.getName());
+            System.out.println("Cliente seleccionado: " + selectedClient.getName());
             
             // 2. Seleccionar celulares
             System.out.println("\n--- SELECCIONAR CELULARES ---");
             List<PhoneModel> phones = phoneService.getAllPhones();
             
             if (phones.isEmpty()) {
-                System.out.println("✗ No hay celulares disponibles.\n");
+                System.out.println("No hay celulares disponibles.\n");
                 return;
             }
             
@@ -128,7 +128,7 @@ public class SaleController {
                 }
                 
                 if (phoneIndex < 0 || phoneIndex >= phones.size()) {
-                    System.out.println("✗ Selección inválida");
+                    System.out.println("Selección inválida");
                     continue;
                 }
                 
@@ -138,7 +138,7 @@ public class SaleController {
                 int quantity = Integer.parseInt(scanner.nextLine().trim());
                 
                 if (quantity <= 0 || quantity > selectedPhone.getStock()) {
-                    System.out.println("✗ Cantidad inválida");
+                    System.out.println("Cantidad inválida");
                     continue;
                 }
                 
@@ -147,7 +147,7 @@ public class SaleController {
                     .anyMatch(item -> item.get("phoneId") == selectedPhone.getId());
                 
                 if (exists) {
-                    System.out.println("✗Este celular ya fue añadido a la venta");
+                    System.out.println("Este celular ya fue añadido a la venta");
                     continue;
                 }
                 
@@ -156,12 +156,12 @@ public class SaleController {
                 item.put("quantity", quantity);
                 items.add(item);
                 
-                System.out.printf("✓Añadido: %s %s x %d\n", 
+                System.out.printf("Añadido: %s %s x %d\n", 
                     selectedPhone.getBrand(), selectedPhone.getModel(), quantity);
             }
             
             if (items.isEmpty()) {
-                System.out.println("✗La venta debe tener al menos un artículo\n");
+                System.out.println("La venta debe tener al menos un artículo\n");
                 return;
             }
             
@@ -194,7 +194,7 @@ public class SaleController {
             String confirmation = scanner.nextLine().trim();
             
             if (!confirmation.equalsIgnoreCase("S")) {
-                System.out.println("✗Venta cancelada\n");
+                System.out.println("Venta cancelada\n");
                 return;
             }
             
