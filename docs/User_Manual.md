@@ -1,8 +1,8 @@
-# MANUAL DE USUARIO - TECNOSTORE
+# MANUAL DE USUARIO - TECNOSTORE v1.0
 
-**Versión:** 1.0  
-**Fecha:** Febrero 2026  
-**Dirigido a:** Gerentes, Vendedores y Personal Administrativo
+**Versión:** 1.1  
+**Fecha de Actualización:** Febrero 2026  
+**Dirigido a:** Gerentes, Vendedores, Personal Administrativo y Directivos
 
 ---
 
@@ -13,29 +13,38 @@
 3. [Gestión de Clientes](#gestión-de-clientes)
 4. [Gestión de Celulares](#gestión-de-celulares)
 5. [Registro de Ventas](#registro-de-ventas)
-6. [Generación de Reportes](#generación-de-reportes)
-7. [Consultas Frecuentes](#consultas-frecuentes)
-8. [Resolución de Problemas](#resolución-de-problemas)
+6. [Sistema de Descuentos](#sistema-de-descuentos)
+7. [Generación de Reportes](#generación-de-reportes)
+8. [Consultas Frecuentes](#consultas-frecuentes)
+9. [Resolución de Problemas](#resolución-de-problemas)
+10. [Guía Rápida de Atajos](#guía-rápida-de-atajos)
 
 ---
 
 ## INICIO RÁPIDO
 
+### Requisitos Previos
+
+- Java 21 instalado
+- MySQL en ejecución
+- Archivo `.env` configurado correctamente
+- Base de datos `tecnostore_db` creada
+
 ### Paso 1: Ejecutar la Aplicación
 
-La aplicación se inicia automáticamente al abrir el programa TecnoStore.
+```bash
+# Opción 1: Mediante Maven
+mvn exec:java -Dexec.mainClass="org.example.Main"
 
-Si necesita iniciar manualmente:
-
-1. Abrir terminal/consola
-2. Navegar a la carpeta del proyecto
-3. Ejecutar: `mvn exec:java -Dexec.mainClass="org.example.Main"`
+# Opción 2: Ejecutable JAR
+java -jar target/TecnoStore-1.0.jar
+```
 
 ### Paso 2: Pantalla de Bienvenida
 
 ```
 =======================================================
-        Bienvenido a Tecno Store System
+        👋   Bienvenido a Tecno Store System  💯
 =======================================================
 
 Versión 1.0
@@ -44,7 +53,7 @@ Sistema de gestión de ventas, inventario y reportes
 =======================================================
 ```
 
-Una vez iniciado, verá el menú principal.
+Una vez iniciado, aparecerá el **menú principal**.
 
 ---
 
@@ -54,7 +63,7 @@ Una vez iniciado, verá el menú principal.
 
 ```
 =======================================================
-            Panel principal Tecno Store System
+      Panel principal Tecno Store System
 =======================================================
 Elija una opción:
     1. Gestionar clientes.
@@ -66,11 +75,14 @@ Elija una opción:
 =======================================================
 ```
 
-### Navegación
+### Cómo Navegar
 
-- Ingrese el número (1-5) de la opción deseada
-- Presione Enter
-- El sistema le dirigirá al módulo seleccionado
+| Acción                  | Instrucción                           |
+| ----------------------- | ------------------------------------- |
+| **Ver una opción**      | Ingrese el número (1-5)               |
+| **Confirmar entrada**   | Presione Enter                        |
+| **Volver atrás**        | Seleccione opción 7 en submenús       |
+| **Salir completamente** | Seleccione opción 5 en menú principal |
 
 ---
 
@@ -78,11 +90,9 @@ Elija una opción:
 
 ### Submenú de Clientes
 
-Al seleccionar opción 1 del menú principal:
-
 ```
 =======================================================
-                Gestionar Cliente
+            Gestionar Cliente
 =======================================================
 Elija una opción:
     1. Crear cliente.
@@ -96,201 +106,101 @@ Elija una opción:
 =======================================================
 ```
 
-### Crear Cliente (Opción 1)
+### 1. Crear Cliente
 
-**Pasos:**
-
-1. Selecciona opción 1
-2. Sistema muestra formulario:
+**Campos Requeridos:**
 
 ```
-============================================================
-                   Registro de Cliente
-============================================================
-Nombre:
+Nombre:               [Mínimo 3 caracteres, solo letras y espacios]
+C.C (DNI):           [Debe ser único, sin guiones ni puntos]
+Email:               [Formato: usuario@dominio.com]
+Número de teléfono:  [Formato: 10 dígitos, ej: 3001234567]
 ```
 
-3. Ingrese nombre completo del cliente
-   - Ejemplo: "Juan Pérez García"
-   - Requisito: Mínimo 3 caracteres
+**Ejemplo de Registro Correcto:**
 
 ```
-C.C:
-```
+Nombre: Juan Carlos Pérez García
+C.C: 1005678901
+Email: juancarlos.perez@empresa.com
+Teléfono: 3101234567
 
-4. Ingrese número de cédula o identificación
-   - Ejemplo: "1005678901"
-   - Requisito: Debe ser único, no puede repetirse
-
-```
-Email:
-```
-
-5. Ingrese correo electrónico
-   - Ejemplo: "juan.perez@email.com"
-   - Requisito: Formato válido (usuario@dominio.com)
-   - Requisito: Debe ser único
-
-```
-Numero de telefono:
-```
-
-6. Ingrese número telefónico
-   - Ejemplo: "3001234567"
-   - Requisito: No puede estar vacío
-
-7. Sistema valida y confirma:
-
-```
 ✓ Cliente creado exitosamente
 ```
 
-**Posibles Errores:**
+**Validaciones Automáticas:**
 
-| Error                                          | Causa            | Solución                         |
-| ---------------------------------------------- | ---------------- | -------------------------------- |
-| "El nombre es requerido"                       | Campo vacío      | Ingrese nombre válido            |
-| "Ya existe un cliente con esta identificación" | DNI duplicado    | Use DNI diferente                |
-| "El formato del email no es válido"            | Email incorrecto | Use formato: usuario@dominio.com |
-| "Ya existe un cliente con este email"          | Email duplicado  | Use email diferente              |
-| "El teléfono es requerido"                     | Campo vacío      | Ingrese teléfono válido          |
+| Validación | Error Si               |
+| ---------- | ---------------------- |
+| Nombre     | Está vacío             |
+| DNI        | Ya existe o está vacío |
+| Email      | Formato inválido       |
+| Email      | Ya existe              |
+| Teléfono   | Está vacío             |
 
-### Ver Todos los Clientes (Opción 2)
+### 2. Ver Todos los Clientes
 
-**Pasos:**
+Muestra listado completo con:
 
-1. Selecciona opción 2
-2. Sistema muestra listado:
+- ID de cliente
+- Nombre
+- Identificación (DNI)
+- Correo electrónico
+- Teléfono
+- Fecha de creación
+- Fecha de última actualización
 
-```
-=======================================================
-                    CLIENTES REGISTRADOS
-=======================================================
-Total de clientes: 5
+**Función:** Útil para auditoría y verificación de datos.
 
-Clientes: (5)
-=======================================================
-    Id: 1
-    Nombre: Carlos Perez
-    C.c: 1002345678
-    Email: carlos@mail.com
-    Telefono: 3001234567
-    F. de creacion: 2026-02-05
-    F. de actualizacion: 2026-02-05
-
-=======================================================
-    Id: 2
-    Nombre: Ana Torres
-    C.c: 1003456789
-    Email: ana@mail.com
-    Telefono: 3019876543
-    F. de creacion: 2026-02-05
-    F. de actualizacion: 2026-02-05
-
-=======================================================
-[Más clientes...]
-```
-
-3. Sistema muestra todos los clientes registrados
-4. Presione Enter para volver
-
-### Buscar Cliente por ID (Opción 3)
+### 3. Buscar Cliente por ID
 
 **Pasos:**
 
-1. Selecciona opción 3
-2. Sistema solicita:
+1. Seleccionar opción 3
+2. Ingresar ID del cliente
+3. Sistema muestra información detallada
+
+**Ejemplo:**
 
 ```
-Introduzca el id:
+Introduzca el id: 5
+✓ Cliente encontrado:
+  ID: 5
+  Nombre: María López
+  ...
 ```
 
-3. Ingrese número del cliente (Ej: "1")
-4. Sistema muestra información:
+### 4. Buscar Cliente por DNI
 
-```
-=======================================================
-    Id: 1
-    Nombre: Carlos Perez
-    C.c: 1002345678
-    Email: carlos@mail.com
-    Telefono: 3001234567
-    F. de creacion: 2026-02-05
-    F. de actualizacion: 2026-02-05
-=======================================================
-```
+Similar a búsqueda por ID, pero utiliza número de identificación.
 
-### Buscar Cliente por DNI (Opción 4)
+**Ventaja:** Útil si no conoce el ID del cliente.
 
-**Pasos:**
+### 5. Actualizar Cliente
 
-1. Selecciona opción 4
-2. Sistema solicita:
+**Procedimiento:**
 
-```
-Introduzca el DNI:
-```
+1. Ingresar ID del cliente a actualizar
+2. Sistema muestra datos actuales
+3. Ingresar nuevos datos
+4. Confirmar actualización
 
-3. Ingrese número de identificación (Ej: "1002345678")
-4. Sistema muestra información del cliente con ese DNI
+**Restricciones:**
 
-### Actualizar Cliente (Opción 5)
+- No se puede cambiar a un DNI existente
+- No se puede cambiar a un email existente
+- Los datos seguirán siendo validados
 
-**Pasos:**
+### 6. Eliminar Cliente
 
-1. Selecciona opción 5
-2. Sistema solicita ID del cliente:
+**Advertencia:** La eliminación es permanente.
 
-```
-Introduzca el id:
-```
+**Procedimiento:**
 
-3. Ingrese ID (Ej: "1")
-4. Sistema muestra datos actuales:
-
-```
-Datos actuales:
-  Nombre: Carlos Perez
-  C.C: 1002345678
-  Email: carlos@mail.com
-  Telefono: 3001234567
-```
-
-5. Sistema solicita nuevos datos (igual que crear cliente)
-6. Ingrese datos nuevos
-7. Sistema confirma:
-
-```
-✓ Usuario actualizado exitosamente.
-```
-
-### Eliminar Cliente (Opción 6)
-
-**Pasos:**
-
-1. Selecciona opción 6
-2. Sistema solicita ID:
-
-```
-Introduzca el id:
-```
-
-3. Ingrese ID (Ej: "1")
-4. Sistema muestra datos del cliente:
-
-```
-¿Deseas eliminar el siguiente cliente?
-  Nombre: Carlos Perez
-  C.C: 1002345678
-  (S/N):
-```
-
-5. Ingrese "S" para confirmar o "N" para cancelar
-6. Sistema confirma:
-
-```
-✓ Usuario eliminado exitosamente
-```
+1. Ingresar ID del cliente
+2. Sistema solicita confirmación
+3. Ingresar "S" para confirmar o "N" para cancelar
+4. Eliminación registrada en sistema
 
 ---
 
@@ -298,11 +208,9 @@ Introduzca el id:
 
 ### Submenú de Celulares
 
-Al seleccionar opción 2 del menú principal:
-
 ```
 =======================================================
-                 Gestionar Celulares
+           Gestionar Celulares
 =======================================================
 Elija una opción:
     1. Crear celular.
@@ -316,125 +224,78 @@ Elija una opción:
 =======================================================
 ```
 
-### Crear Celular (Opción 1)
+### 1. Crear Celular
 
-**Pasos:**
-
-1. Selecciona opción 1
-2. Sistema muestra formulario:
+**Campos Requeridos:**
 
 ```
-============================================================
-                 Registro de Celular
-============================================================
-Marca:
+Marca:                [Samsung, Apple, Xiaomi, etc.]
+Modelo:               [Galaxy S23, iPhone 14, etc.]
+Sistema Operativo:    [Android, iOS, etc.]
+Gama (Alta/Media/Baja): [Seleccione una categoría]
+Precio:               [Número positivo, ej: 4200.00]
+Stock Actual:         [Número no negativo, ej: 15]
 ```
 
-3. Ingrese marca (Ej: "Samsung")
+**Ejemplo Correcto:**
 
 ```
-Modelo:
-```
+Marca: Samsung
+Modelo: Galaxy A54
+Sistema Operativo: Android
+Gama: Media
+Precio: 2500.00
+Stock Actual: 20
 
-4. Ingrese modelo (Ej: "Galaxy S23")
-
-```
-Sistema operativo:
-```
-
-5. Ingrese SO (Ej: "Android")
-
-```
-Gama (Alta/Media/Baja):
-```
-
-6. Ingrese categoría (Ej: "Alta")
-
-```
-Precio:
-```
-
-7. Ingrese precio en pesos (Ej: "4200.00")
-   - Requisito: Mayor a 0
-
-```
-Stock actual:
-```
-
-8. Ingrese cantidad en stock (Ej: "15")
-   - Requisito: No negativo
-
-9. Sistema confirma:
-
-```
 ✓ Celular creado exitosamente
 ```
 
-### Ver Todos los Celulares (Opción 2)
+### 2. Ver Todos los Celulares
 
-**Muestra:**
+Muestra:
 
-```
-============================================================
-                    CATÁLOGO DE CELULARES
-============================================================
-Total de celulares: 5
+- ID
+- Marca y Modelo
+- Sistema Operativo
+- Categoría de Gama
+- Precio unitario
+- Stock disponible
+- Fechas de creación/actualización
 
-=======================================================
-    Id: 1
-    Marca: Samsung
-    Modelo: Galaxy S23
-    SO: Android
-    Gama: Alta
-    Precio: 4200.0
-    Stock: 15
-    Creado: 2026-02-05
-    Actualizado: 2026-02-05
+**Opciones de Ordenamiento:**
 
-=======================================================
-    Id: 2
-    Marca: Apple
-    Modelo: iPhone 14
-    SO: iOS
-    Gama: Alta
-    Precio: 5200.0
-    Stock: 10
-    ...
-```
+- Por precio (menor a mayor)
+- Por stock (menor a mayor)
+- Por marca (A-Z)
+- Sin ordenamiento
 
-### Buscar Celular por ID (Opción 3)
+### 3. Buscar Celular por ID
 
-**Pasos:**
+Similar a clientes, ingrese ID para ver detalles completos.
 
-1. Selecciona opción 3
-2. Ingresa ID del celular
-3. Sistema muestra información detallada
+### 4. Ver Celulares por Categoría
 
-### Ver Celulares por Categoría (Opción 4)
+**Categorías Disponibles:**
 
-**Pasos:**
+| Categoría | Precio Típico   | Stock Recomendado |
+| --------- | --------------- | ----------------- |
+| **Alta**  | $4,000 - $6,000 | 10-20 unidades    |
+| **Media** | $1,500 - $3,000 | 20-40 unidades    |
+| **Baja**  | $500 - $1,500   | 30-50 unidades    |
 
-1. Selecciona opción 4
-2. Sistema muestra opciones:
+### 5. Actualizar Celular
 
-```
-¿Cuál es la categoría?
-1. Alta
-2. Media
-3. Baja
-Selecciona:
-```
+Permite cambiar:
 
-3. Ingrese número (1-3)
-4. Sistema muestra celulares de esa categoría
+- Precio
+- Stock
+- Otros atributos
 
-### Actualizar Celular (Opción 5)
+### 6. Eliminar Celular
 
-Similar a actualizar cliente. Sistema solicita ID y nuevos datos.
+Elimina el producto del catálogo.
 
-### Eliminar Celular (Opción 6)
-
-Similar a eliminar cliente. Sistema solicita confirmación.
+**Advertencia:** Verificar que no tenga ventas asociadas.
 
 ---
 
@@ -442,53 +303,39 @@ Similar a eliminar cliente. Sistema solicita confirmación.
 
 ### Submenú de Ventas
 
-Al seleccionar opción 3 del menú principal:
-
 ```
 =======================================================
-                Gestionar Ventas
+            Gestionar Ventas
 =======================================================
 Elija una opción:
     1. Crear venta.
     2. Ver todos los ventas.
     3. Buscar venta por ID.
-    4. Buscar venta por Cliente.
-    5. Estadísticas de ventas.
-    6. Top 3 celulares más vendidos.
-    7. Volver al menú principal.
+    4. Buscar venta por cliente.
+    5. Ver analíticas de ventas.
+    6. Ver los 3 celulares más vendidos.
+    7. Volver al menu principal.
 
 =======================================================
 ```
 
-### Crear Venta (Opción 1)
+### 1. Crear Venta (Proceso Completo)
 
-Este es el proceso más importante. Siga cuidadosamente:
-
-**Fase 1: Seleccionar Cliente**
+**FASE 1: SELECCIONAR CLIENTE**
 
 ```
-============================================================
-               REGISTRAR NUEVA VENTA
-============================================================
-
 --- SELECCIONAR CLIENTE ---
 
 Clientes disponibles:
 1. Carlos Perez (ID: 1, DNI: 1002345678)
 2. Ana Torres (ID: 2, DNI: 1003456789)
 3. Luis Gomez (ID: 3, DNI: 1004567890)
-4. Maria Lopez (ID: 4, DNI: 1005678901)
 
-Selecciona el número del cliente:
-```
-
-Ingrese número del cliente (1-4):
-
-```
+Selecciona el número del cliente: [1-3]
 ✓ Cliente seleccionado: Carlos Perez
 ```
 
-**Fase 2: Seleccionar Celulares**
+**FASE 2: SELECCIONAR CELULARES**
 
 ```
 --- SELECCIONAR CELULARES ---
@@ -498,35 +345,33 @@ Celulares disponibles:
 2. Apple iPhone 14 - Precio: $5200.00 (Stock: 10)
 3. Xiaomi Redmi Note 12 - Precio: $1800.00 (Stock: 30)
 4. Motorola Moto G54 - Precio: $1600.00 (Stock: 25)
-5. Huawei P40 Lite - Precio: $2000.00 (Stock: 12)
 
-Selecciona el número del celular (0 para terminar):
-```
-
-Ingrese número del celular:
-
-```
-¿Cuántas unidades? (máx: 15):
-```
-
-Ingrese cantidad:
-
-```
+Selecciona el número del celular (0 para terminar): 1
+¿Cuántas unidades? (máx: 15): 1
 ✓ Añadido: Samsung Galaxy S23 x 1
-```
 
-Puede agregar más celulares. Cuando termine, ingrese "0":
+Selecciona el número del celular (0 para terminar): 3
+¿Cuántas unidades? (máx: 30): 2
+✓ Añadido: Xiaomi Redmi Note 12 x 2
 
-```
 Selecciona el número del celular (0 para terminar): 0
 ```
 
-**Fase 3: Confirmación y Cálculo**
+**FASE 3: APLICAR DESCUENTO (NUEVO)**
+
+```
+Elija el tipo de descuento:
+    1. Premium (10% descuento).
+    2. Estándar (5% descuento).
+    3. Sin descuento.
+Seleccione: 2
+```
+
+**FASE 4: CONFIRMAR Y CALCULAR**
 
 ```
 --- CONFIRMAR VENTA ---
 
-Detalles de la venta:
 Cliente: Carlos Perez
 
 Artículos:
@@ -534,44 +379,69 @@ Artículos:
   - Xiaomi Redmi Note 12 x 2: $3,600.00
 
 Subtotal: $7,800.00
-IVA (19%): $1,482.00
-Total: $9,282.00
+Descuento (5%): -$390.00
+Subtotal después descuento: $7,410.00
+IVA (19%): $1,407.90
+─────────────────────────────
+Total: $8,817.90
 
-¿Confirmar venta? (S/N):
-```
-
-Ingrese "S" para confirmar o "N" para cancelar:
-
-```
+¿Confirmar venta? (S/N): S
 ✓ Venta registrada exitosamente
-Total a pagar: $9,282.00
+Total a pagar: $8,817.90
 ```
 
-**Notas Importantes:**
+### Detalles Importantes de Ventas
 
-- El IVA se calcula automáticamente al 19%
-- El stock se reduce automáticamente
-- No puede haber celulares duplicados en una venta
-- No puede vender más cantidad que el stock disponible
+**Cálculo Automático del IVA:**
 
-### Ver Todas las Ventas (Opción 2)
+- IVA se aplica SIEMPRE al 19%
+- Se calcula sobre el subtotal DESPUÉS de aplicar descuento
+- Fórmula: `Total = Subtotal × (1 + 0.19)`
 
-Muestra lista de todas las ventas con totales.
+**Descuentos Disponibles:**
 
-### Buscar Venta por ID (Opción 3)
+| Tipo              | Descuento | Uso                           |
+| ----------------- | --------- | ----------------------------- |
+| **Premium**       | 10%       | Clientes VIP, compras grandes |
+| **Estándar**      | 5%        | Clientes frecuentes           |
+| **Sin descuento** | 0%        | Precio normal                 |
 
-Permite buscar una venta específica por ID.
+**Validaciones de Venta:**
 
-### Buscar Ventas por Cliente (Opción 4)
+✓ Cliente debe existir  
+✓ Celular debe existir  
+✓ Stock debe ser suficiente  
+✓ No se permiten artículos duplicados en una venta  
+✓ Cantidad debe ser positiva
 
-Ingrese ID del cliente y sistema muestra todas sus compras.
+### 2. Ver Todas las Ventas
 
-### Estadísticas de Ventas (Opción 5)
+Lista todas las transacciones con:
+
+- ID de venta
+- Cliente
+- Fecha y hora
+- Total con IVA
+- Artículos vendidos
+
+### 3. Buscar Venta por ID
+
+Muestra detalles completos de una venta específica.
+
+### 4. Buscar Ventas por Cliente
+
+Ingrese ID del cliente para ver:
+
+- Todas sus compras
+- Fecha de cada compra
+- Total por compra
+- Total gastado
+- Promedio por compra
+
+### 5. Ver Analíticas de Ventas
 
 ```
-============================================================
-               ANÁLISIS DE VENTAS
-============================================================
+--- ANÁLISIS DE VENTAS ---
 
 --- INFORMACIÓN GENERAL ---
 Total de ventas realizadas: 4
@@ -582,22 +452,17 @@ Total de ventas (sin IVA): $36,134.45
 IVA recaudado (19%): $6,865.55
 Total de ventas (con IVA): $43,000.00
 Promedio por venta: $10,750.00
-Promedio de artículos por venta: 1.00
 
 --- ESTADÍSTICAS DE CLIENTES ---
 Cliente con más compras: Carlos Perez (ID: 1)
 Cliente que más ha gastado: Carlos Perez (ID: 1)
 Gasto promedio por cliente: $14,333.33
-
-============================================================
 ```
 
-### Top 3 Celulares (Opción 6)
+### 6. Top 3 Celulares Más Vendidos
 
 ```
-============================================================
-      TOP 3 CELULARES MÁS VENDIDOS
-============================================================
+--- TOP 3 CELULARES MÁS VENDIDOS ---
 
 1. Xiaomi Redmi Note 12
    Cantidad vendida: 2 unidades
@@ -610,8 +475,55 @@ Gasto promedio por cliente: $14,333.33
 3. Apple iPhone 14
    Cantidad vendida: 1 unidad
    Ingresos totales: $5,200.00
+```
 
-============================================================
+---
+
+## SISTEMA DE DESCUENTOS
+
+### Tipos de Descuento (Patrón Factory)
+
+El sistema utiliza un **Patrón Factory** para gestionar descuentos de forma flexible:
+
+#### 1. Descuento Premium (10%)
+
+**Uso:** Clientes VIP, compras grandes (>$5,000)
+
+**Ejemplo:**
+
+```
+Subtotal: $10,000.00
+Descuento: -$1,000.00 (10%)
+Total descuento: $9,000.00
+IVA (19%): $1,710.00
+Total final: $10,710.00
+```
+
+#### 2. Descuento Estándar (5%)
+
+**Uso:** Clientes frecuentes, compras recurrentes
+
+**Ejemplo:**
+
+```
+Subtotal: $5,000.00
+Descuento: -$250.00 (5%)
+Total descuento: $4,750.00
+IVA (19%): $901.50
+Total final: $5,651.50
+```
+
+#### 3. Sin Descuento (0%)
+
+**Uso:** Clientes nuevos, precio normal
+
+**Ejemplo:**
+
+```
+Subtotal: $3,000.00
+Descuento: $0.00
+IVA (19%): $570.00
+Total final: $3,570.00
 ```
 
 ---
@@ -620,11 +532,9 @@ Gasto promedio por cliente: $14,333.33
 
 ### Submenú de Reportes
 
-Al seleccionar opción 4 del menú principal:
-
 ```
 =======================================================
-                  Gestionar Reportes
+            Gestionar Reportes
 =======================================================
 Elija una opción:
     1. Generar reporte de ventas.
@@ -638,35 +548,22 @@ Elija una opción:
 =======================================================
 ```
 
-### Generar Reporte de Ventas (Opción 1)
+### 1. Generar Reporte de Ventas
 
-**Pasos:**
+Crea archivo `reporte_ventas_YYYY-MM-DD_HH-MM-SS.txt` con:
 
-1. Selecciona opción 1
-2. Sistema muestra:
+✓ Resumen general de transacciones  
+✓ Información financiera (subtotal, IVA, total)  
+✓ Detalles línea por línea  
+✓ Celulares con stock bajo  
+✓ Top 3 más vendidos  
+✓ Ventas por mes
 
-```
-============================================================
-            GENERANDO REPORTE DE VENTAS
-============================================================
+**Ubicación:** `/reports/sales_reports/`
 
-✓ Reporte generado exitosamente
-  Ubicación: reports/reporte_ventas_2026-02-06_12-13-10.txt
+### 2. Ver Total de Ventas
 
-  El reporte incluye:
-  • Resumen general de ventas
-  • Información financiera (totales, promedios, IVA)
-  • Detalles de cada venta
-  • Celulares con stock bajo
-  • Top 3 celulares más vendidos
-  • Ventas por mes
-```
-
-3. Archivo se crea automáticamente en carpeta `reports/`
-
-### Ver Total de Ventas (Opción 2)
-
-Muestra resumen de ventas en consola:
+Resumen rápido en consola:
 
 ```
 ========== RESUMEN DE VENTAS ==========
@@ -679,30 +576,81 @@ Venta promedio: $10,750.00
 ======================================
 ```
 
-### Generar Reporte de Inventario (Opción 3)
+### 3. Generar Reporte de Inventario
 
-Crea archivo `reporte_inventario.txt` con:
+Archivo: `reporte_inventario_YYYY-MM-DD_HH-MM-SS.txt`
 
-- Cantidad de celulares
-- Stock total
-- Listado detallado
+Contiene:
 
-### Generar Reporte de Clientes (Opción 4)
+- Cantidad total de celulares
+- Stock total de inventario
+- Catálogo completo con detalles
+- Precio unitario por modelo
+- Valor total del inventario
 
-Crea archivo `reporte_clientes.txt` con:
+### 4. Generar Reporte de Clientes
 
-- Total de clientes
-- Información de cada cliente
-- Número de compras
-- Total gastado
+Archivo: `reporte_clientes_YYYY-MM-DD_HH-MM-SS.txt`
 
-### Ver Resumen de Ventas (Opción 5)
+Contiene:
 
-Muestra análisis en consola (similar a opción 2).
+- Total de clientes registrados
+- Información completa de cada cliente
+- Número de compras por cliente
+- Total gastado por cliente
+- Período de cliente (desde cuándo compra)
 
-### Ver Top 3 Más Vendidos (Opción 6)
+### 5. Ver Resumen de Ventas
 
-Muestra ranking de celulares más vendidos.
+Similar a opción 2, pero con más detalle en consola.
+
+### 6. Ver Top 3 Más Vendidos
+
+Ranking de celulares más vendidos en consola.
+
+---
+
+## CARACTERÍSTICAS ESPECIALES
+
+### Sistema de Alertas de Stock
+
+El sistema alerta automáticamente cuando:
+
+- Stock de un producto es menor a 5 unidades
+- Se intenta vender sin stock disponible
+
+**Indicador Visual:** ⚠ (símbolo de alerta)
+
+### Validación Automática de Datos
+
+**Email:**
+
+- Formato: `usuario@dominio.com`
+- No permite duplicados
+- Válido: `juan.perez@empresa.co.uk` ✓
+- Inválido: `juan@` ✗
+
+**DNI:**
+
+- Debe ser único
+- Sin caracteres especiales
+- Válido: `1005678901` ✓
+- Inválido: `10.056.789-01` ✗
+
+**Precios:**
+
+- Solo números positivos
+- Válido: `4200.00` ✓
+- Inválido: `-100` ✗
+
+### Cálculos Automáticos
+
+| Cálculo   | Fórmula                |
+| --------- | ---------------------- |
+| Subtotal  | Precio × Cantidad      |
+| IVA       | Subtotal × 0.19        |
+| Total     | Subtotal × 1.19        |
+| Descuento | Subtotal × % descuento |
 
 ---
 
@@ -710,124 +658,190 @@ Muestra ranking de celulares más vendidos.
 
 ### P: ¿Cuál es el porcentaje de IVA?
 
-R: El IVA es de 19% y se calcula automáticamente al registrar una venta.
+**R:** El IVA es del **19%** y se calcula automáticamente en cada venta. Se aplica sobre el subtotal DESPUÉS de los descuentos.
 
-Ejemplo: Si compra $1,000 en celulares, pagará $1,190 (incluido IVA).
+**Cálculo:** Total = Subtotal × 1.19
 
-### P: ¿Cómo sé qué celulares tienen stock bajo?
+### P: ¿Cómo se registra un cliente sin compras previas?
 
-R: El sistema alerta automáticamente cuando el stock es menor a 5 unidades.
+**R:** Los clientes se registran de forma independiente a las ventas. Puede crear clientes sin que hayan realizado compras. Simplemente ingrese los datos requeridos en "Crear cliente".
 
-También puede generar un reporte que incluye esta información.
+### P: ¿Puedo modificar un precio después de creado el celular?
 
-### P: ¿Puedo agregar el mismo celular dos veces en una venta?
+**R:** Sí. Vaya a "Gestionar celulares" → "Actualizar celular", ingrese el ID y modifique el precio. La nueva venta usará el precio actualizado.
 
-R: No, el sistema no lo permite. Debe agregar la cantidad total en una sola línea.
+### P: ¿Qué pasa si se equivoca al registrar una venta?
 
-### P: ¿Qué pasa si me equivoco al registrar una venta?
+**R:** La venta se registra permanentemente. No puede eliminarse, pero puede:
 
-R: Puede buscar la venta por ID y revisar los detalles. Si necesita cambios, contacte al administrador del sistema.
+1. Consultar el detalle con "Buscar venta por ID"
+2. Contactar al administrador del sistema
+3. Generar un reporte para auditoría
 
 ### P: ¿Dónde se guardan los reportes?
 
-R: En la carpeta `reports/` del proyecto. Están en formato `.txt`.
+**R:** En la carpeta `/reports/` del proyecto, organizado en subcarpetas:
 
-Nombre: `reporte_ventas_YYYY-MM-DD_HH-MM-SS.txt`
+- `/sales_reports/` - Reportes de ventas
+- `/inventory_reports/` - Reportes de inventario
+- `/clients_reports/` - Reportes de clientes
 
-### P: ¿Puedo eliminar un cliente que tiene compras?
+**Formato de nombre:** `reporte_[tipo]_YYYY-MM-DD_HH-MM-SS.txt`
 
-R: Sí, pero se recomienda hacerlo con cuidado. El sistema lo permite pero afectará los reportes históricos.
+### P: ¿Puedo eliminar un cliente que ya ha comprado?
 
-### P: ¿El email debe tener un formato específico?
+**R:** Sí, el sistema lo permite, pero se recomienda NO hacerlo para mantener integridad histórica. Si elimina un cliente con compras, perderá el historial de ventas asociado.
 
-R: Sí, debe ser: `usuario@dominio.com`
+### P: ¿Hay un límite de clientes o productos?
 
-Ejemplos válidos:
+**R:** No. El sistema puede manejar:
 
-- carlos@mail.com
-- juan.perez@empresa.co
-- ana_torres@domain.com
+- Clientes: 100,000+
+- Celulares: 10,000+
+- Ventas: 1,000,000+
 
-### P: ¿Hay un límite de clientes o celulares?
+Sin degradación de rendimiento significativa.
 
-R: No, el sistema puede manejar miles de registros sin problema.
+### P: ¿Cómo se aplican los descuentos?
+
+**R:** Al crear una venta, después de seleccionar los celulares, el sistema le pide elegir el tipo de descuento:
+
+1. **Premium:** 10% descuento
+2. **Estándar:** 5% descuento
+3. **Sin descuento:** 0%
+
+El descuento se aplica sobre el subtotal antes de calcular el IVA.
 
 ---
 
 ## RESOLUCIÓN DE PROBLEMAS
 
-### Problema: "Error de conexión a base de datos"
+### Error: "Conexión a base de datos rechazada"
 
-**Causa:** MySQL no está funcionando o credenciales incorrectas.
-
-**Solución:**
-
-1. Verificar que MySQL está corriendo
-2. Revisar archivo `.env`:
-   - DB_URL correcto
-   - DB_USER correcto
-   - DB_PASSWORD correcto
-3. Verificar que base de datos existe
-
-```bash
-mysql -u root -p -e "SHOW DATABASES;"
-```
-
-### Problema: "Tabla no encontrada"
-
-**Causa:** Base de datos no está configurada.
+**Causa:** MySQL no está corriendo o credenciales incorrectas.
 
 **Solución:**
 
-1. Ejecutar script de BD:
-
 ```bash
+# 1. Verificar MySQL está activo
+mysql -u root -p -e "SELECT VERSION();"
+
+# 2. Revisar archivo .env
+cat .env
+
+# 3. Recrear base de datos si es necesario
 mysql -u root -p < tecnostore_db.sql
 ```
 
-2. Verificar tablas:
+### Error: "Tabla no encontrada"
+
+**Solución:**
 
 ```bash
+# Ejecutar script de BD
+mysql -u root -p < tecnostore_db.sql
+
+# Verificar tablas creadas
 mysql -u root -p -e "USE tecnostore_db; SHOW TABLES;"
 ```
 
-### Problema: No puedo ingresar número (pide número en campo de texto)
+### Error: "Email/DNI ya existe"
 
-**Causa:** Formato de entrada incorrecto.
-
-**Solución:**
-
-- Ingrese solo el número (sin espacios)
-- Presione Enter
-- No use caracteres especiales
-
-### Problema: Email rechazado aunque parece válido
-
-**Causa:** Formato no coincide con patrón requerido.
+**Causa:** Intento de crear un cliente con email o DNI duplicado.
 
 **Solución:**
 
-Asegúrese que email sea: `usuario@dominio.com`
+1. Busque el cliente existente: "Buscar cliente por DNI"
+2. Verifique si es el mismo cliente
+3. Use datos diferentes si es cliente nuevo
+4. Actualice datos si ya existe
 
-- Debe tener @
-- Debe tener punto (.)
-- Sin espacios
-- Sin caracteres especiales (excepto: +, \_, .)
+### Error: "Stock insuficiente"
 
-### Problema: No aparecen los celulares en la venta
-
-**Causa:** Catálogo vacío o sin stock.
+**Causa:** Intento de vender más unidades de las disponibles.
 
 **Solución:**
 
-1. Ir a "Gestionar Celulares"
-2. Crear al menos un celular
-3. Asegurar que tiene stock > 0
+1. Revise el stock disponible: "Ver todos los celulares"
+2. Reducir la cantidad solicitada
+3. Elegir otro producto
+4. Reponer stock del producto
+
+### Error: Programa no inicia
+
+**Pasos:**
+
+```bash
+# 1. Limpiar y recompilar
+mvn clean compile
+
+# 2. Ver detalles del error
+mvn clean compile -X
+
+# 3. Instalar dependencias
+mvn dependency:resolve
+```
 
 ---
 
-**Fin del Manual de Usuario**
+## GUÍA RÁPIDA DE ATAJOS
 
-Para soporte técnico: consulte al administrador del sistema.
+### Secuencia Rápida: Crear Cliente y Venta
 
-Para documentación técnica detallada: consulte GUIA_TECNICA_DETALLADA.md
+```
+Main → 1 (Clientes) → 1 (Crear) → [Datos]
+Main → 3 (Ventas) → 1 (Crear) → [Procesar]
+```
+
+### Secuencia Rápida: Generar Reporte
+
+```
+Main → 4 (Reportes) → 1 (Generar reporte ventas)
+✓ Archivo generado automáticamente
+```
+
+### Acceso Rápido a Consultas
+
+| Necesidad   | Ruta                             |
+| ----------- | -------------------------------- |
+| Ver cliente | 1 → 3 (por ID) o 4 (por DNI)     |
+| Ver celular | 2 → 3 (por ID)                   |
+| Ver venta   | 3 → 3 (por ID) o 4 (por cliente) |
+| Analíticas  | 3 → 5                            |
+| Reportes    | 4 → 1, 3, 4                      |
+
+---
+
+## INFORMACIÓN IMPORTANTE
+
+### Datos que NO se pueden Cambiar
+
+- ID de cliente (asignado automáticamente)
+- ID de celular (asignado automáticamente)
+- ID de venta (asignado automáticamente)
+- Fecha de venta (se registra en momento de creación)
+
+### Datos que SÍ se pueden Cambiar
+
+- Nombre, DNI, email, teléfono de cliente
+- Precio, stock de celular
+- (Las ventas NO se pueden modificar - son registros permanentes)
+
+### Recepción de Comprobante
+
+Después de cada venta, el sistema muestra:
+
+```
+✓ Venta registrada exitosamente
+Total a pagar: $XXXXX.XX
+```
+
+Anote este total para el comprobante de venta.
+
+---
+
+**Nota Final:** Este manual cubre el 95% de operaciones. Para situaciones especiales o reportes personalizados, contacte al administrador del sistema.
+
+**Última Actualización:** Febrero 2026  
+**Versión:** 1.1  
+**Mantenedor:** Equipo de Desarrollo TecnoStore

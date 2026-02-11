@@ -13,6 +13,7 @@ No toda la información sobre el sistema se encuentra acá en esté mismo archiv
 - 📚 [Resumen Ejecutivo](./docs/Executive_Summary.md)
 - 📚 [Guia para Tests](./docs/TEST_GUIDE.md)
 - 📚 [Resumen de Tests](./docs/RESUMEN_TEST.md)
+- 📚 [Resumen de Patrones de Diseño](./docs/DESING_PATTERS_DOCUMENTATION.md)
 
 ## Sistema de Venta de Celulares “TecnoStore”
 
