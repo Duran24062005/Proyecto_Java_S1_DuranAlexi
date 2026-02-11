@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.example.Model.PhoneModel;
 import org.example.View.PhoneView;
+import org.example.pattern.strategy.NoSortStrategy;
+import org.example.pattern.strategy.SortByBrandStrategy;
+import org.example.pattern.strategy.SortByPriceStrategy;
+import org.example.pattern.strategy.SortByStockStrategy;
 import org.example.service.PhoneService;
 
 /**
@@ -70,9 +74,33 @@ public class PhoneController {
      * Muestra todos los celulares
      */
     public void showAllPhones(){
-        List<PhoneModel> phones = phoneService.getAllPhones();
+        int option;
+        boolean question = true;
+        while (question) {
+            option = phoneView.showPhonesMenu();
+            switch (option) {
+                case 1 -> { 
+                    phoneService.setSortingStrategy(new SortByPriceStrategy());
+                    question = false;
+                }
+                case 2 -> { 
+                    phoneService.setSortingStrategy(new SortByStockStrategy());
+                    question = false;
+                }
+                case 3 -> { 
+                    phoneService.setSortingStrategy(new SortByBrandStrategy());
+                    question = false;
+                }
+                case 4 -> { 
+                    phoneService.setSortingStrategy(new NoSortStrategy());
+                    question = false;
+                }
+                default -> System.out.println("\nElija una opción valida");
+            }
+        }
+        List<PhoneModel> phones = phoneService.getPhonesSorted();
         if (phones.isEmpty()) {
-            System.out.println("✗ No hay celulares registrados\n");
+            System.out.println("No hay celulares registrados\n");
             return;
         }
         phoneView.getPhones(phones);

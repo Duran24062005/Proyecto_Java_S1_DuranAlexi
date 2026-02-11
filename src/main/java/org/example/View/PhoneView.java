@@ -38,6 +38,26 @@ public class PhoneView {
         }
     }
 
+    public int showPhonesMenu(){
+        System.out.println("""
+        \n¿Cómo deseas ver los celulares?
+            1. Por precio.
+            2. Por Stock.
+            3. Por marca.
+            4. Sin ordenamiento
+        """);
+
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Debes ingresar un número válido\n");
+            return -1;
+        } catch (IllegalStateException | java.util.NoSuchElementException e) {
+            System.out.println("Error en la lectura de datos.");
+            return -1;
+        }
+    }
+
     public PhoneModel createNewPhone(){
         System.out.println("\n" + "═".repeat(60));
         System.out.println("           Registro de Celular");

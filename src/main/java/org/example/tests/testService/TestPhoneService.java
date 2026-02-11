@@ -44,7 +44,6 @@ public class TestPhoneService {
 
         } catch (Exception e) {
             System.out.println("✗ Error en la inicialización: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -137,7 +136,7 @@ public class TestPhoneService {
     private static void testGetAllPhones() {
         System.out.println("\n[TEST 3] Obtener todos los celulares");
         try {
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             System.out.println("✓ Celulares obtenidos: " + phones.size());
             
             if (!phones.isEmpty()) {
@@ -163,7 +162,7 @@ public class TestPhoneService {
     private static void testGetPhoneById() {
         System.out.println("\n[TEST 4] Obtener celular por ID");
         try {
-            List<PhoneModel> allPhones = phoneService.getAllPhones();
+            List<PhoneModel> allPhones = phoneService.getPhonesSorted();
             if (allPhones.isEmpty()) {
                 System.out.println("⚠ No hay celulares disponibles");
                 return;
@@ -295,7 +294,7 @@ public class TestPhoneService {
         System.out.println("\n[TEST 9] Calcular precio promedio");
         try {
             double avgPrice = phoneService.getAveragePrice();
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             
             System.out.println("✓ Análisis de precios:");
             System.out.printf("  Total de celulares: %d\n", phones.size());
@@ -326,7 +325,7 @@ public class TestPhoneService {
         System.out.println("\n[TEST 10] Calcular stock total");
         try {
             int totalStock = phoneService.getTotalStock();
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             
             System.out.println("✓ Análisis de inventario:");
             System.out.printf("  Total de celulares: %d\n", phones.size());
@@ -386,7 +385,7 @@ public class TestPhoneService {
     private static void testReducePhoneStock() {
         System.out.println("\n[TEST 12] Reducir stock de celular");
         try {
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             if (phones.isEmpty()) {
                 System.out.println("⚠ No hay celulares disponibles");
                 return;
@@ -422,7 +421,7 @@ public class TestPhoneService {
     private static void testUpdatePhoneStock() {
         System.out.println("\n[TEST 13] Actualizar stock de celular");
         try {
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             if (phones.isEmpty()) {
                 System.out.println("⚠ No hay celulares disponibles");
                 return;

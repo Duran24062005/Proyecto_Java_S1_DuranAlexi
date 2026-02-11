@@ -12,6 +12,7 @@ import org.example.Model.ClientModel;
 import org.example.Model.PhoneModel;
 import org.example.Model.SaleModel;
 import org.example.Model.SalesDetailsModel;
+import org.example.pattern.strategy.NoSortStrategy;
 
 public class ReportService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
@@ -119,7 +120,6 @@ public class ReportService {
             
         } catch (IOException e) {
             System.out.println("Error al generar el reporte: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }
@@ -156,7 +156,10 @@ public class ReportService {
             writer.write(String.format("Valor promedio por unidad: $%.2f\n\n", phoneService.getAveragePrice()));
             
             writer.write("--- CATÁLOGO DE CELULARES ---\n");
-            List<PhoneModel> phones = phoneService.getAllPhones();
+
+            // Seteo de la estrategia
+            phoneService.setSortingStrategy(new NoSortStrategy());
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             for (PhoneModel phone : phones) {
                 writer.write(String.format("\nID: %d\n", phone.getId()));
                 writer.write(String.format("Marca: %s\n", phone.getBrand()));
@@ -176,7 +179,6 @@ public class ReportService {
             
         } catch (IOException e) {
             System.out.println("Error al generar el reporte: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }
@@ -223,7 +225,6 @@ public class ReportService {
             
         } catch (IOException e) {
             System.out.println("Error al generar el reporte: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }

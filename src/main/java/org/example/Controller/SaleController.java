@@ -11,6 +11,7 @@ import org.example.Model.PhoneModel;
 import org.example.Model.SaleModel;
 import org.example.Model.SalesDetailsModel;
 import org.example.View.SaleView;
+import org.example.pattern.strategy.NoSortStrategy;
 import org.example.service.ClientService;
 import org.example.service.PhoneService;
 import org.example.service.SaleService;
@@ -101,7 +102,8 @@ public class SaleController {
             
             // 2. Seleccionar celulares
             System.out.println("\n--- SELECCIONAR CELULARES ---");
-            List<PhoneModel> phones = phoneService.getAllPhones();
+            phoneService.setSortingStrategy(new NoSortStrategy());
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
             
             if (phones.isEmpty()) {
                 System.out.println("No hay celulares disponibles.\n");

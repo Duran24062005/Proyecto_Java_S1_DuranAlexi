@@ -3,14 +3,29 @@ package org.example.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.example.Interfaces.patternInterfaces.strategy.ISortingStrategy;
 import org.example.Model.PhoneModel;
+import org.example.pattern.strategy.NoSortStrategy;
 import org.example.repository.PhoneRepository;
 
 public class PhoneService {
     private final PhoneRepository phoneRepository;
+    private ISortingStrategy sortingStrategy;
 
     public PhoneService() {
         this.phoneRepository = new PhoneRepository();
+        this.sortingStrategy = new NoSortStrategy();
+    }
+
+    // Setter para cambiar la estrategia
+    public void setSortingStrategy(ISortingStrategy strategy) {
+        this.sortingStrategy = strategy;
+        System.out.println("Estrategia cambiada a: " + strategy.getStrategyName());
+    }
+
+    // Getter para saber la estrategi actual
+    public ISortingStrategy getSortingStrategy() {
+        return sortingStrategy;
     }
 
     /**
@@ -68,8 +83,10 @@ public class PhoneService {
      * Obtiene todos los celulares
      * @return Lista de todos los celulares
      */
-    public List<PhoneModel> getAllPhones() {
-        return phoneRepository.getAllPhones();
+    public List<PhoneModel> getPhonesSorted() {
+        List<PhoneModel> phones = phoneRepository.getAllPhones();
+        sortingStrategy.sort(phones);
+        return phones;
     }
 
     /**

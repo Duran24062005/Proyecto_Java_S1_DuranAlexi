@@ -4,6 +4,8 @@ import org.example.Interfaces.patternInterfaces.factory.IDiscount;
 
 /*
     Clase Factory, oquestador de descuetos
+    ¿Para qué sirve?
+    Crea objetos sin especificar sus clases exactas. Perfecto para crear diferentes tipos de Descuentos o Categorías de Celulares.
 */
 public class DiscountFactory {
 

@@ -53,7 +53,6 @@ public class TestSaleService {
 
         } catch (Exception e) {
             System.out.println("✗ Error en la inicialización: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -367,7 +366,7 @@ public class TestSaleService {
                 .limit(1)
                 .toList();
             
-            var phones = phoneService.getAllPhones().stream()
+            var phones = phoneService.getPhonesSorted().stream()
                 .filter(p -> p.getStock() >= 1)
                 .limit(2)
                 .toList();
@@ -390,7 +389,7 @@ public class TestSaleService {
             System.out.println("  Cliente ID: " + clientIds.get(0));
             System.out.println("  Artículos a vender: " + items.size());
             
-            boolean registered = saleService.registerSale(clientIds.get(0), items);
+            boolean registered = saleService.registerSale(clientIds.get(0), items, "none");
             System.out.println("  Venta registrada: " + registered);
             
             if (registered) {
