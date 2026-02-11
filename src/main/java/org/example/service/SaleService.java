@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.example.Interfaces.patternInterfaces.factory.IDiscount;
 import org.example.Model.PhoneModel;
 import org.example.Model.SaleModel;
 import org.example.Model.SalesDetailsModel;
+import org.example.pattern.factory.DiscountFactory;
 import org.example.repository.PhoneRepository;
 import org.example.repository.SaleRepository;
 import org.example.repository.SalesDetailsRepository;
@@ -35,7 +37,11 @@ public class SaleService {
      * @param items Lista de items de venta (phoneId, cantidad)
      * @return true si se registra correctamente
      */
-    public boolean registerSale(int clientId, List<Map<String, Integer>> items) {
+    public boolean registerSale(int clientId, List<Map<String, Integer>> items, String discountType) {
+
+        // Creación del descuento usando Factory
+        IDiscount discount = DiscountFactory.createDiscount(discountType);
+
         // Validar cliente
         if (!clientService.clientExists(clientId)) {
             System.out.println("Error: El cliente no existe");
@@ -74,6 +80,9 @@ public class SaleService {
             PhoneModel phone = phoneRepository.getPhoneById(phoneId);
             subtotal += phone.getPrice() * quantity;
         }
+
+        // Aplicar descuento
+        subtotal = discount.apply(subtotal);
         
         // Aplicar IVA
         double total = subtotal * (1 + IVA_RATE);
@@ -115,6 +124,9 @@ public class SaleService {
                 return false;
             }
         }
+
+        System.out.println("Descuento aplicado: " + discount.getName());
+        System.out.printf("  Total: $%.2f\n", total);
         
         return true;
     }

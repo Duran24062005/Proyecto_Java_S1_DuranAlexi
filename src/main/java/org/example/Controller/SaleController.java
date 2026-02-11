@@ -164,6 +164,35 @@ public class SaleController {
                 System.out.println("La venta debe tener al menos un artículo\n");
                 return;
             }
+
+            
+            boolean isDiscountSet = true;
+            String setDiscountType = "";
+
+            while (isDiscountSet) {
+                System.out.println("""
+                Elija el tipo de descuento:
+                    1. Premium.
+                    2. Satandar.
+                    3. Sin descuento.
+                """);
+                int discount = Integer.parseInt(scanner.nextLine());
+                switch (discount) {
+                    case 1 -> {
+                        setDiscountType = "premium";
+                        isDiscountSet = false;
+                    }
+                    case 2 -> {
+                        setDiscountType = "standar";
+                        isDiscountSet = false;
+                    }
+                    case 3 -> {
+                        setDiscountType = "none";
+                        isDiscountSet = false;
+                    }
+                    default -> System.out.println("Seleccione una opción valida.");
+                }
+            }
             
             // 3. Registrar venta
             System.out.println("\n--- CONFIRMAR VENTA ---");
@@ -199,10 +228,10 @@ public class SaleController {
             }
             
             // Registrar venta
-            boolean registered = saleService.registerSale(selectedClient.getId(), items);
+            boolean registered = saleService.registerSale(selectedClient.getId(), items, setDiscountType);
             
             if (registered) {
-                System.out.println("\n Venta registrada exitosamente");
+                System.out.println("\n Venta registrada exitosamente"); 
                 System.out.printf("Total a pagar: $%.2f\n\n", total);
             } else {
                 System.out.println("\n No se pudo registrar la venta\n");

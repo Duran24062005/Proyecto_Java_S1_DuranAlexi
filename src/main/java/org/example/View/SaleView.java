@@ -19,9 +19,9 @@ public class SaleView {
                 1. Crear venta.
                 2. Ver todos los ventas.
                 3. Buscar venta por ID.
-                4. Buscar venta por DNI.
-                5. Actualizar venta.
-                6. Eliminar venta.
+                4. Buscar por cliente.
+                5. Ver analiticas de ventas.
+                6. Ver los 3 cel. más vendidos.
                 7. volver al menu principal.
 
             =======================================================
