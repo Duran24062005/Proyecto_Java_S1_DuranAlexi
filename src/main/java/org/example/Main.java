@@ -52,21 +52,25 @@ public class Main {
             switch (option) {
                 case 1 -> {
                     System.out.println("\n Entrando a Gestión de Clientes...");
+                    alertNotification.stockNotificationLow();
                     clientController.init();
                 }
                 
                 case 2 -> {
                     System.out.println("\n Entrando a Gestión de Celulares...");
+                    alertNotification.stockNotificationLow();
                     phoneController.init();
                 }
                 
                 case 3 -> {
                     System.out.println("\n Entrando a Gestión de Ventas...");
+                    alertNotification.stockNotificationLow();
                     saleController.init();
                 }
                 
                 case 4 -> {
                     System.out.println("\n Entrando a Gestión de Reportes...");
+                    alertNotification.stockNotificationLow();
                     reportController.init();
                 }
                 

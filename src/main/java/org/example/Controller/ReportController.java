@@ -154,6 +154,33 @@ public class ReportController {
         System.out.println();
     }
 
+    public void generateLowStockReport(){
+        System.out.println("\n" + "═".repeat(60));
+        System.out.println("   GENERANDO REPORTE DE CELULARES CON STOCK MENOR A 5.");
+        System.out.println("═".repeat(60));
+        
+        try {
+            boolean success = reportService.generateStockLowReport();
+            
+            if (success) {
+                System.out.println("\n✓ Reporte de stock bajo generado exitosamente");
+                System.out.println("  Ubicación: reporte_inventario.txt");
+                System.out.println("\n  El reporte incluye:");
+                System.out.println("  • Cantidad total de celulares");
+                System.out.println("  • Stock total de inventario");
+                System.out.println("  • Catálogo completo de celulares");
+                System.out.println("  • Información detallada de cada modelo");
+            } else {
+                System.out.println("\n✗ Error al generar el reporte");
+            }
+            
+        } catch (Exception e) {
+            System.out.println("\n✗ Error: " + e.getMessage());
+        }
+        
+        System.out.println();
+    }
+
     /**
      * Imprime análisis de ventas en consola
      */

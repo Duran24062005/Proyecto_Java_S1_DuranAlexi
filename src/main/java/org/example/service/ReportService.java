@@ -184,6 +184,52 @@ public class ReportService {
     }
 
     /**
+     * Genera un reporte de celulares con el stock más bajo
+     * @return true si se genera correctamente
+     */
+    public boolean generateStockLowReport() {
+        String REPORT_FILE = generateReportFileName("/stock_phone_reports/", "inventario");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(REPORT_FILE))) {
+            writer.write("========================================\n");
+            writer.write("REPORTE DE CELULARES CON STOCK BAJO - TECNOSTORE\n");
+            writer.write("========================================\n");
+            writer.write("Generado: " + LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + "\n\n");
+            
+            writer.write("--- INFORMACIÓN GENERAL ---\n");
+            writer.write("Total de celulares: " + phoneService.countPhones() + "\n");
+            writer.write("Stock total: " + phoneService.getTotalStock() + "\n");
+            writer.write(String.format("Valor promedio por unidad: $%.2f\n\n", phoneService.getAveragePrice()));
+            
+            writer.write("--- CATÁLOGO DE CELULARES ---\n");
+
+            // Seteo de la estrategia
+            phoneService.setSortingStrategy(new NoSortStrategy());
+            List<PhoneModel> phones = phoneService.getPhonesSorted();
+            for (PhoneModel phone : phones) {
+                writer.write(String.format("\nID: %d\n", phone.getId()));
+                writer.write(String.format("Marca: %s\n", phone.getBrand()));
+                writer.write(String.format("Modelo: %s\n", phone.getModel()));
+                writer.write(String.format("Sistema Operativo: %s\n", phone.getOperativeSystem()));
+                writer.write(String.format("Categoría: %s\n", phone.getRangeCategory()));
+                writer.write(String.format("Precio: $%.2f\n", phone.getPrice()));
+                writer.write(String.format("Stock: %d unidades\n", phone.getStock()));
+            }
+            
+            writer.write("\n========================================\n");
+            writer.write("Fin del reporte\n");
+            writer.write("========================================\n");
+            
+            System.out.println("Reporte de inventario generado en: reporte_inventario.txt");
+            return true;
+            
+        } catch (IOException e) {
+            System.out.println("Error al generar el reporte: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
      * Genera un reporte de clientes
      * @return true si se genera correctamente
      */
