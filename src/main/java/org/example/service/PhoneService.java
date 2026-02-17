@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.example.Interfaces.patternInterfaces.strategy.ISortingStrategy;
 import org.example.Model.PhoneModel;
 import org.example.pattern.strategy.NoSortStrategy;
-import org.example.repository.PhoneRepository;
+import org.example.repositories.PhoneRepository;
 
 public class PhoneService {
     private final PhoneRepository phoneRepository;

@@ -1,0 +1,89 @@
+========================================
+REPORTE DE VENTAS - TECNOSTORE
+========================================
+Generado: 11/02/2026 08:06:32
+
+--- RESUMEN GENERAL ---
+Total de ventas: 8
+Total de artículos vendidos: 9
+Total de clientes: 11
+Total de celulares en catálogo: 8
+
+--- INFORMACIÓN FINANCIERA ---
+Total de ventas (con IVA): $9582983,50
+Total sin IVA: $8052927,31
+Total de IVA (19%): $1530056,19
+Venta promedio: $1197872,94
+Gasto promedio por cliente: $2395745,88
+
+--- DETALLES DE VENTAS ---
+
+Venta ID: 1
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-05
+Total: $4200,00
+Artículos:
+  - Samsung Galaxy S23 (Cantidad: 1, Subtotal: $4200,00)
+
+Venta ID: 2
+Cliente: Ana Torres (ID: 2)
+Fecha: 2026-02-05
+Total: $3600,00
+Artículos:
+  - Xiaomi Redmi Note 12 (Cantidad: 2, Subtotal: $3600,00)
+
+Venta ID: 3
+Cliente: Luis Gomez (ID: 3)
+Fecha: 2026-02-05
+Total: $5200,00
+Artículos:
+  - Apple iPhone 14 (Cantidad: 1, Subtotal: $5200,00)
+
+Venta ID: 4
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-05
+Total: $30000,00
+Artículos:
+
+Venta ID: 5
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-06
+Total: $7072,00
+Artículos:
+
+Venta ID: 7
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-06
+Total: $11305,00
+Artículos:
+  - Samsung Galaxy S23 (Cantidad: 1, Subtotal: $4300,00)
+  - Apple iPhone 14 (Cantidad: 1, Subtotal: $5200,00)
+
+Venta ID: 8
+Cliente: Alexi (ID: 14)
+Fecha: 2026-02-10
+Total: $9520000,00
+Artículos:
+  - Nintendo ESP32 (Cantidad: 2, Subtotal: $8000000,00)
+
+Venta ID: 9
+Cliente: Alexi (ID: 14)
+Fecha: 2026-02-10
+Total: $1606,50
+Artículos:
+  - Oppo A77 (Cantidad: 1, Subtotal: $1500,00)
+
+--- CELULARES CON STOCK BAJO (< 5) ---
+No hay celulares con stock bajo
+
+--- TOP 3 CELULARES MÁS VENDIDOS ---
+1. Samsung Galaxy S23 - Cantidad vendida: 2
+2. Apple iPhone 14 - Cantidad vendida: 2
+3. Xiaomi Redmi Note 12 - Cantidad vendida: 2
+
+--- VENTAS POR MES ---
+Mes: FEBRUARY - Total: $9582983,50
+
+========================================
+Fin del reporte
+========================================

@@ -246,6 +246,10 @@ public class SaleController {
         }
     }
 
+    public void lowStockAlert() {
+        
+    }
+
     /**
      * Muestra todas las ventas
      */

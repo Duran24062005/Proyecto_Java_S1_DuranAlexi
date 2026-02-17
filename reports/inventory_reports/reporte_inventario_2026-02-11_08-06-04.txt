@@ -1,0 +1,79 @@
+========================================
+REPORTE DE INVENTARIO - TECNOSTORE
+========================================
+Generado: 11/02/2026 08:06:04
+
+--- INFORMACIÓN GENERAL ---
+Total de celulares en catálogo: 8
+Stock total: 225
+Valor promedio por unidad: $502550,00
+
+--- CATÁLOGO DE CELULARES ---
+
+ID: 1
+Marca: Samsung
+Modelo: Galaxy S23
+Sistema Operativo: Android
+Categoría: Alta
+Precio: $4300,00
+Stock: 99 unidades
+
+ID: 2
+Marca: Apple
+Modelo: iPhone 14
+Sistema Operativo: iOS
+Categoría: Alta
+Precio: $5200,00
+Stock: 9 unidades
+
+ID: 3
+Marca: Xiaomi
+Modelo: Redmi Note 12
+Sistema Operativo: Android
+Categoría: Media
+Precio: $1800,00
+Stock: 30 unidades
+
+ID: 4
+Marca: Motorola
+Modelo: Moto G54
+Sistema Operativo: Android
+Categoría: Media
+Precio: $1600,00
+Stock: 25 unidades
+
+ID: 5
+Marca: Huawei
+Modelo: P40 Lite
+Sistema Operativo: Android
+Categoría: Media
+Precio: $2000,00
+Stock: 12 unidades
+
+ID: 6
+Marca: OnePlus
+Modelo: 12 Pro
+Sistema Operativo: Android
+Categoría: Alta
+Precio: $3999,99
+Stock: 20 unidades
+
+ID: 8
+Marca: Oppo
+Modelo: A77
+Sistema Operativo: Android
+Categoría: Media
+Precio: $1500,00
+Stock: 24 unidades
+
+ID: 9
+Marca: Nintendo
+Modelo: ESP32
+Sistema Operativo: CampusOS
+Categoría: Altisima
+Precio: $4000000,00
+Stock: 6 unidades
+
+========================================
+Fin del reporte
+========================================

@@ -10,9 +10,9 @@ import org.example.Model.PhoneModel;
 import org.example.Model.SaleModel;
 import org.example.Model.SalesDetailsModel;
 import org.example.pattern.factory.DiscountFactory;
-import org.example.repository.PhoneRepository;
-import org.example.repository.SaleRepository;
-import org.example.repository.SalesDetailsRepository;
+import org.example.repositories.PhoneRepository;
+import org.example.repositories.SaleRepository;
+import org.example.repositories.SalesDetailsRepository;
 
 public class SaleService {
     private final SaleRepository saleRepository;

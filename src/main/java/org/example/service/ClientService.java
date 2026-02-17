@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.example.Model.ClientModel;
-import org.example.repository.ClientRepository;
+import org.example.repositories.ClientRepository;
 
 public class ClientService {
     private final ClientRepository clientRepository;

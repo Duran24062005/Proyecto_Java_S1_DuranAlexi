@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.example.Config.DatabaseConnection;
 import org.example.Model.ClientModel;
-import org.example.repository.ClientRepository;
+import org.example.repositories.ClientRepository;
 
 /**
  * Clase de pruebas para ClientRepository

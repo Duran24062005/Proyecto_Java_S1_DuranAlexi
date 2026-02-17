@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.example.repositories;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

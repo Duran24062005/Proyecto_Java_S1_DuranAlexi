@@ -1,0 +1,97 @@
+========================================
+REPORTE DE VENTAS - TECNOSTORE
+========================================
+Generado: 13/02/2026 08:08:52
+
+--- RESUMEN GENERAL ---
+Total de ventas: 9
+Total de artículos vendidos: 18
+Total de clientes: 12
+Total de celulares en catálogo: 9
+
+--- INFORMACIÓN FINANCIERA ---
+Total de ventas (con IVA): $38225093,50
+Total sin IVA: $32121927,31
+Total de IVA (19%): $6103166,19
+Venta promedio: $4247232,61
+Gasto promedio por cliente: $7645018,70
+
+--- DETALLES DE VENTAS ---
+
+Venta ID: 1
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-05
+Total: $4200,00
+Artículos:
+  - Samsung Galaxy S23 (Cantidad: 1, Subtotal: $4200,00)
+
+Venta ID: 2
+Cliente: Ana Torres (ID: 2)
+Fecha: 2026-02-05
+Total: $3600,00
+Artículos:
+  - Xiaomi Redmi Note 12 (Cantidad: 2, Subtotal: $3600,00)
+
+Venta ID: 3
+Cliente: Luis Gomez (ID: 3)
+Fecha: 2026-02-05
+Total: $5200,00
+Artículos:
+  - Apple iPhone 14 (Cantidad: 1, Subtotal: $5200,00)
+
+Venta ID: 4
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-05
+Total: $30000,00
+Artículos:
+
+Venta ID: 5
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-06
+Total: $7072,00
+Artículos:
+
+Venta ID: 7
+Cliente: Nombre Actualizado (ID: 1)
+Fecha: 2026-02-06
+Total: $11305,00
+Artículos:
+  - Samsung Galaxy S23 (Cantidad: 1, Subtotal: $4300,00)
+  - Apple iPhone 14 (Cantidad: 1, Subtotal: $5200,00)
+
+Venta ID: 8
+Cliente: Alexi (ID: 14)
+Fecha: 2026-02-10
+Total: $9520000,00
+Artículos:
+  - Nintendo ESP32 (Cantidad: 2, Subtotal: $8000000,00)
+
+Venta ID: 9
+Cliente: Alexi (ID: 14)
+Fecha: 2026-02-10
+Total: $1606,50
+Artículos:
+  - Oppo A77 (Cantidad: 1, Subtotal: $1500,00)
+
+Venta ID: 10
+Cliente: David (ID: 20)
+Fecha: 2026-02-13
+Total: $28642110,00
+Artículos:
+  - new old (Cantidad: 3, Subtotal: $69000,00)
+  - Nintendo ESP32 (Cantidad: 6, Subtotal: $24000000,00)
+
+--- CELULARES CON STOCK BAJO (< 5) ---
+Nintendo ESP32 - Stock: 0
+
+--- TOP 3 CELULARES MÁS VENDIDOS ---
+1. Nintendo ESP32 - Cantidad vendida: 8
+2. new old - Cantidad vendida: 3
+3. Samsung Galaxy S23 - Cantidad vendida: 2
+
+--- VENTAS POR MES ---
+Mes: FEBRUARY - Total: $38225093,50
+
+========================================
+Fin del reporte
+========================================

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.example.Config.DatabaseConnection;
 import org.example.Model.PhoneModel;
-import org.example.repository.PhoneRepository;
+import org.example.repositories.PhoneRepository;
 
 /**
  * Clase de pruebas para PhoneRepository

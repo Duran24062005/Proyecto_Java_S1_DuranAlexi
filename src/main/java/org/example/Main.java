@@ -1,10 +1,13 @@
 package org.example;
 
+import org.example.Controller.AlertNotification;
 import org.example.Controller.ClientController;
 import org.example.Controller.PhoneController;
 import org.example.Controller.ReportController;
 import org.example.Controller.SaleController;
 import org.example.View.MainMenu;
+import org.example.repositories.PhoneRepository;
+import org.example.service.AlertNotificationService;
 
 
 /**
@@ -38,7 +41,13 @@ public class Main {
         boolean running = true;
         
         while (running) { 
+            PhoneRepository repo = new PhoneRepository();
+            AlertNotificationService service = new AlertNotificationService(repo);
+            AlertNotification alertNotification = new AlertNotification(service);
+            alertNotification.stockNotificationLow();
+
             option = menu.mainMenu();
+
 
             switch (option) {
                 case 1 -> {

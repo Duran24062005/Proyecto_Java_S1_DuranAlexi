@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.example.Config.DatabaseConnection;
 import org.example.Model.SaleModel;
-import org.example.repository.SaleRepository;
+import org.example.repositories.SaleRepository;
 
 /**
  * Clase de pruebas para SaleRepository

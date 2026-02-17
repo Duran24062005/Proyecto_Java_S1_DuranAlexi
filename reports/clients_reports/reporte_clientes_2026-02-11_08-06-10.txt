@@ -1,0 +1,101 @@
+========================================
+REPORTE DE CLIENTES - TECNOSTORE
+========================================
+Generado: 11/02/2026 08:06:10
+
+--- INFORMACIÓN GENERAL ---
+Total de clientes: 11
+
+--- LISTADO DE CLIENTES ---
+
+ID: 1
+Nombre: Nombre Actualizado
+Identificación: 123476
+Email: alexi.duran@ex.com
+Teléfono: 3999999999
+Número de compras: 4
+Total gastado: $52577,00
+
+ID: 2
+Nombre: Ana Torres
+Identificación: 1003456789
+Email: ana@mail.com
+Teléfono: 3019876543
+Número de compras: 1
+Total gastado: $3600,00
+
+ID: 3
+Nombre: Luis Gomez
+Identificación: 1004567890
+Email: luis@mail.com
+Teléfono: 3024567890
+Número de compras: 1
+Total gastado: $5200,00
+
+ID: 4
+Nombre: Maria Lopez
+Identificación: 1005678901
+Email: maria@mail.com
+Teléfono: 3036547891
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 5
+Nombre: John Doe
+Identificación: 12345678A
+Email: john.doe@example.com
+Teléfono: 555-1234
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 10
+Nombre: Jose Tertulio
+Identificación: 1009876543
+Email: pedro.sanchez@mail.com
+Teléfono: 3045678901
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 14
+Nombre: Alexi
+Identificación: 1234567
+Email: hola.greet@gmail.com
+Teléfono: 543456
+Número de compras: 2
+Total gastado: $9521606,50
+
+ID: 15
+Nombre: Enrique Marulanda
+Identificación: 98383949
+Email: maru.landa@gmail.com
+Teléfono: 4567890
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 16
+Nombre: Jose David
+Identificación: 34567
+Email: jo.se@gmail.com
+Teléfono: 4567889
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 17
+Nombre: Camilo
+Identificación: 9876324
+Email: edw.cr@gmail.com
+Teléfono: 3457890
+Número de compras: 0
+Total gastado: $0,00
+
+ID: 18
+Nombre: Francisco Javier
+Identificación: 555-076
+Email: fran.cisco@gmail.com
+Teléfono: 3456789
+Número de compras: 0
+Total gastado: $0,00
+
+========================================
+Fin del reporte
+========================================
